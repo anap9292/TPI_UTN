@@ -65,7 +65,6 @@ namespace TPI_UTN.Controllers
         }
         /*Eliminar*/
 
-        [HttpPost]
         public IActionResult Eliminar(int id)
         {
             var oCliente = clienteDatos.ObtenerCliente(id);

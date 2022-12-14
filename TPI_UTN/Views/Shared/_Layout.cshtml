@@ -25,21 +25,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+
+                        <li>
+
+                        </li>
+
                     </ul>
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrador
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
+                            <li><a class="dropdown-item" asp-controller="Usuario" asp-action="Index">Usuarios</a></li>
+
+                            <li><a class="dropdown-item" href="#">Proveedores</a></li>
+                            <li><a class="dropdown-item" href="#">Productos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
                 </div>
+
+
+
+
             </div>
-            <div class="btn-group">
-                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    Administrador
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
-                    <li><a class="dropdown-item" href="#">Proveedores</a></li>
-                    <li><a class="dropdown-item" href="#">Productos</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
+           
         </nav>
     </header>
     <div class="container">
