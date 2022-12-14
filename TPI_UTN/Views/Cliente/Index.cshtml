@@ -1,0 +1,26 @@
+﻿@model List<Cliente>
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Administrador de clientes</h2>
+
+<a asp-action="Guardar" asp-controller="Cliente" class="btn btn-primary">Crear Cliente</a>
+
+
+@foreach (var item in Model){
+    @item.clie_id
+    @item.clie_nombre
+    @item.clie_apellido
+    @item.clie_cuil
+    @item.clie_dni
+    @item.clie_razon_social
+    @item.clie_user
+    @item.clie_tipo
+
+    <a asp-action = "Editar" asp - controller = "Cliente" class="btn btn-secondary" asp-route-id="@item.clie_id">Editar</a>
+    <a asp-action="Eliminar" asp-controller="Cliente" class="btn btn-danger">Eliminar</a>
+}

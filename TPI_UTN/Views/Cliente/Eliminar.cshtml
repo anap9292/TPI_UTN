@@ -1,0 +1,13 @@
+﻿@model Cliente 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<p>La pagina para eliminar funciona</p>
+<form asp-action="Eliminar" asp-controller="Cliente" method="post">
+    <input asp-for="clie_id" type="hidden" class="form-control" />
+
+    <p>Seguro que queres eliminar al cliente: @Html.DisplayTextFor(m=>m.clie_nombre) ??? </p>
+    <button type="submit" class="btn-danger">Eliminar </button>
+</form>
