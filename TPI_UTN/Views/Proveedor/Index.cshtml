@@ -1,0 +1,35 @@
+﻿@using practica2.Models.Proveedor
+@model List<Proveedor>
+  
+
+<h1>ABM PROVEEDORES</h1>
+<div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">CUIT</th>
+            <th scope="col">Categorías</th>
+            <th scope="col">ABM</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Proveedor item in this.Model)
+        {
+            <tr>
+                <th scope="row">@item.id</th>
+                <td>@item.nombre</td>
+                <td>@item.direccion</td>
+                <td>@item.cuit</td>
+                    <td><a asp-area="" asp-controller="Proveedor" asp-action="Categorias" asp-route-id="@item.id" class="btn btn-outline-info">Ver categorías</a></td>
+                <td>
+                        <a asp-area="" asp-controller="Proveedor" asp-action="Editar" asp-route-id="@item.id" class="btn btn-secondary">Modificar</a>
+                        <a asp-area="" asp-controller="Proveedor" asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+            
+</table>
+    <a asp-area="" asp-controller="Proveedor" asp-action="Guardar" class="btn btn-primary">Agregar un proveedor</a>

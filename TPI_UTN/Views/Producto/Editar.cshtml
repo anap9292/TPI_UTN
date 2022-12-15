@@ -1,0 +1,105 @@
+﻿@using practica2.Models
+@model Producto
+
+<h1>Modificar a @Model.nombre</h1>
+<div class="formulario">
+    <form asp-action="Editar" asp-controller="Producto" method="post">
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input asp-for="nombre" type="text" value=@Model.nombre class="form-control" id="CambiadoProdNombre" placeholder="Nombre del producto" >
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <textarea asp-for="descripcion" type="text" class="form-control" cols="20" rows="3" id ="CambiadoProdDescripcion">@Model.descripcion</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Imagen</label>
+            <input asp-for="imagen" type="url" value=@Model.imagen class="form-control" id ="CambiadoProdImagen" placeholder="Ingrese la URL de una imagen...">
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio unitario</label>
+            <input asp-for="precio" type="number" value=@Model.precio class="form-control" id="CambiadoProdPrecio" placeholder="Precio unitario">
+        </div>
+
+        <div class="form-group">
+            <label for="stock">Stock disponible</label>
+            <input asp-for="stock" type="number" value=@Model.stock class="form-control" id="CambiadoProdStock" >
+        </div>
+
+        <div class="form-group">
+            <label for="proveedor">Proveedor</label>
+            <input asp-for="proveedor" type="text" value=@Model.proveedor class="form-control" id="CambiadoProdProveedor" placeholder="Sólo puede poner un proveedor existente." >
+            <small class="form-text text-muted">¿Es un nuevo proveedor? Registrelo primero.</small>
+            <a asp-area="" asp-controller="Proveedor" asp-action="Guardar" class="btn btn-secondary">Registrar un proveedor</a>
+        </div>
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<form>
+    <div class="form-group">
+        <label for="idProd">ID</label>
+        <input class="form-control" id="idProd" placeholder="Ingrese un identificador" value="">
+        <small id="emailHelp" class="form-text text-muted">Debe ser un número entero de no más de 6 dígitos.</small>
+    </div>
+    <div class="form-group">
+        <label for="@nombre">Nombre</label>
+        <input class="form-control" id="nombreProd" placeholder="Ingrese el nombre del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@precio">Precio</label>
+        <input class="form-control" id="precioProd" placeholder="Ingrese el precio unitario del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@proveedor">Proveedor</label>
+        <input class="form-control" id="provProd" placeholder="Ingrese el nombre del proveedor del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@stock">Stock</label>
+        <input class="form-control" id="provStock" placeholder="Ingrese la cantidad de unidades disponibles" value="">
+    </div>
+
+
+    @{
+        Producto nuevoProducto = new Producto(id, nombre, precio, proveedor, stock);
+       
+    }
+    <a asp-area="" asp-controller="Producto" asp-action="AgregarProducto(@nuevoProducto)"><button type="submit" class="btn btn-primary">Agregar</button></a>
+</form>*@
+

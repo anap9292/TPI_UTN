@@ -1,0 +1,78 @@
+﻿@using practica2.Models.Proveedor
+@model Proveedor
+
+<h1>Modifica a @Model.nombre</h1>
+<div class="formulario">
+    <form asp-action="Editar" asp-controller="Proveedor" method="post">
+
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input asp-for="nombre" type="text" value =@Model.nombre class="form-control" id="NuevoProvNombre" placeholder="Nombre del proveedor">
+        </div>
+
+        <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input asp-for="direccion" type="text" value=@Model.direccion class="form-control" id="NuevoProdDireccion" placeholder="Domocilio, Ciudad, Provincia">
+        </div>
+
+        <div class="form-group">
+            <label for="cuit">CUIT</label>
+            <input asp-for="cuit" type="number" value=@Model.cuit class="form-control" id="NuevoProdCUIT" placeholder="CUIT">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<form>
+    <div class="form-group">
+        <label for="idProd">ID</label>
+        <input class="form-control" id="idProd" placeholder="Ingrese un identificador" value="">
+        <small id="emailHelp" class="form-text text-muted">Debe ser un número entero de no más de 6 dígitos.</small>
+    </div>
+    <div class="form-group">
+        <label for="@nombre">Nombre</label>
+        <input class="form-control" id="nombreProd" placeholder="Ingrese el nombre del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@precio">Precio</label>
+        <input class="form-control" id="precioProd" placeholder="Ingrese el precio unitario del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@proveedor">Proveedor</label>
+        <input class="form-control" id="provProd" placeholder="Ingrese el nombre del proveedor del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@stock">Stock</label>
+        <input class="form-control" id="provStock" placeholder="Ingrese la cantidad de unidades disponibles" value="">
+    </div>
+
+
+    @{
+        Producto nuevoProducto = new Producto(id, nombre, precio, proveedor, stock);
+       
+    }
+    <a asp-area="" asp-controller="Producto" asp-action="AgregarProducto(@nuevoProducto)"><button type="submit" class="btn btn-primary">Agregar</button></a>
+</form>*@
+

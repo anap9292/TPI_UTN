@@ -1,8 +1,82 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using practica2.Models
+@model List<Producto>
+
+@{
+    ViewData["Title"] = "HOME";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <main>
+
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img class="bd-placeholder-img d-block w-100" src="https://thumbs.dreamstime.com/b/make-up-items-pink-color-background-horizontal-web-banner-set-luxury-decorative-cosmetics-flat-lay-top-view-mockup-make-up-163788869.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                        <div class="container">
+                            <div class="carousel-caption text-start">
+                                <h1>Calidad.</h1>
+                                <p>No solo mejora tu apariencia, sino tu salud.</p>
+                              @*  <p><a class="btn btn-lg btn-light" href="#">Sign up today</a></p>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                    <img class="bd-placeholder-img d-block w-100" src="https://thumbs.dreamstime.com/b/make-up-items-pink-color-background-horizontal-web-banner-set-luxury-decorative-cosmetics-flat-lay-top-view-mockup-make-up-163788869.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Belleza.</h1>
+                                <p>Sea la mejor versión de usted mismo ahora.</p>
+                                @*<p><a class="btn btn-lg btn-light" href="#">Learn more</a></p>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                    <img class="bd-placeholder-img d-block w-100" src="https://thumbs.dreamstime.com/b/make-up-items-pink-color-background-horizontal-web-banner-set-luxury-decorative-cosmetics-flat-lay-top-view-mockup-make-up-163788869.jpg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                        <div class="container">
+                            <div class="carousel-caption text-end">
+                                <h1>Libertad.</h1>
+                                <p>Para la expresión no hay límites.</p>
+                                @*<p><a class="btn btn-lg btn-light" href="#">Browse gallery</a></p>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev " type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </main>
+        <h1>Nuestros productos seleccionados</h1>
+
+        <div class="row">
+        @foreach (Producto producto in this.Model)
+        {         
+        <div class="col-sm-4">
+            <div class="container fotoProducto">
+            <img src=@producto.imagen  class="card-img-top" alt=@producto.nombre>
+            </div>
+            <div class="card tarjeta">
+                <div class="card-body tarjetaInterior">
+                    <h5 class="card-title">$@producto.precio</h5>
+                    <p class="card-text">@producto.nombre</p>
+                    <a asp-area="" asp-controller="Home" asp-action="VerMas" asp-route-id="@producto.id" class="btn btn-outline-dark ">Ver más</a>
+                </div>
+            </div>
+        </div>
+        }
 </div>
+
+
+

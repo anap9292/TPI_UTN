@@ -1,0 +1,76 @@
+﻿@using practica2.Models.Proveedor
+@model Proveedor
+
+<h1>Eliminar a @Model.nombre</h1>
+<div class="formulario">
+
+
+    <form asp-action="Eliminar" asp-controller="Proveedor" method="post">
+        <input asp-for="id" type="hidden" class="form-control" />
+        <p>¿Seguro que quieres eliminar el registro de @Html.DisplayTextFor(m => m.nombre)?</p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<form>
+    <div class="form-group">
+        <label for="idProd">ID</label>
+        <input class="form-control" id="idProd" placeholder="Ingrese un identificador" value="">
+        <small id="emailHelp" class="form-text text-muted">Debe ser un número entero de no más de 6 dígitos.</small>
+    </div>
+    <div class="form-group">
+        <label for="@nombre">Nombre</label>
+        <input class="form-control" id="nombreProd" placeholder="Ingrese el nombre del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@precio">Precio</label>
+        <input class="form-control" id="precioProd" placeholder="Ingrese el precio unitario del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@proveedor">Proveedor</label>
+        <input class="form-control" id="provProd" placeholder="Ingrese el nombre del proveedor del producto" value="">
+    </div>
+    <div class="form-group">
+        <label for="@stock">Stock</label>
+        <input class="form-control" id="provStock" placeholder="Ingrese la cantidad de unidades disponibles" value="">
+    </div>
+
+
+    @{
+        Producto nuevoProducto = new Producto(id, nombre, precio, proveedor, stock);
+       
+    }
+    <a asp-area="" asp-controller="Producto" asp-action="AgregarProducto(@nuevoProducto)"><button type="submit" class="btn btn-primary">Agregar</button></a>
+</form>*@
+

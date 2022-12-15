@@ -1,0 +1,35 @@
+﻿@using practica2.Models
+@model List<Producto>
+  
+
+<h1>ABM PRODUCTOS</h1>
+<div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Stock</th>
+            <th scope="col">ABM</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Producto producto in this.Model)
+        {
+            <tr>
+                <th scope="row">@producto.id</th>
+                <td>@producto.nombre</td>
+                <td>@producto.precio</td>
+                <td>@producto.proveedor</td>
+                <td>@producto.stock</td>
+                <td>
+                        <a asp-area="" asp-controller="Producto" asp-action="Editar" asp-route-id="@producto.id" class="btn btn-secondary">Modificar</a>
+                        <a asp-area="" asp-controller="Producto" asp-action="Eliminar" asp-route-id="@producto.id" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+</table>
+    <a asp-area="" asp-controller="Producto" asp-action="Guardar" class="btn btn-primary">Agregar un producto</a>
+
