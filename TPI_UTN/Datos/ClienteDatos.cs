@@ -111,6 +111,7 @@ namespace TPI_UTN.Datos
             catch (Exception e)
             {
                 string error = e.Message;
+                Console.WriteLine(error);
                 respuesta = false;
             }
             return respuesta;

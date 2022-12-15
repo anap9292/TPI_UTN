@@ -16,7 +16,7 @@ namespace TPI_UTN.Controllers
 
             return View(oLista);
         }
-
+        /*-----------------------------------------------------------*/
         //Guardar
         public IActionResult Guardar()
         {
@@ -43,6 +43,12 @@ namespace TPI_UTN.Controllers
         //Editar
         public IActionResult Editar(int id)
         {
+            /*ClienteViewModel clienteViewModelo = new ClienteViewModel();
+            {
+                Cliente = clienteDatos.ObtenerCliente(id);
+                ListaClientes = clienteDatos.ListarCliente();
+            };
+            return View(clienteViewModelo);*/
             //Este metodo devuelve la vista segun el ID
             var oCliente = clienteDatos.ObtenerCliente(id);
             return View(oCliente);

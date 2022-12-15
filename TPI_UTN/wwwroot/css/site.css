@@ -16,3 +16,19 @@ html {
 body {
   margin-bottom: 60px;
 }
+.INGRESAR {
+    height: 52px;
+    width: 130px;
+    outline: none;
+    border: none;
+    color: blueviolet;
+    cursor: pointer;
+    transition: all 0.4s;
+    background-color: white;
+}
+
+    .INGRESAR:hover {
+        background-color: blueviolet;
+        color: white;
+        transition: 0.3s;
+    }

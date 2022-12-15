@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"  style=" background-color: #e3f2fd;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TPI_UTN</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -27,11 +27,20 @@
                         </li>
 
 
-                        <li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Otro item</a>
+
 
                         </li>
 
                     </ul>
+
+                    <form class="d-flex">
+                        <button type="button" class="btn btn-outline-success me-2">INGRESAR</button>
+                    </form>
+
+
+
                     <div class="btn-group">
                         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Administrador
@@ -61,10 +70,18 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+
+
+
+
+
+    <footer class="border-top footer text-muted" style=" background-color: #e3f2fd;">
         <div class="container">
             &copy; 2022 - TPI_UTN - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+       
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
