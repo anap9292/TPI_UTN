@@ -22,7 +22,6 @@
             <th scope="col">DNI</th>
             <th scope="col">Razon Social</th>
             <th scope="col">Usuario</th>
-            <th scope="col">Tipo</th>
             <th scope="col">ACCIÓN</th>
         </tr>
     </thead>
@@ -41,8 +40,7 @@
                 <td>@item.clie_cuil</td>
                 <td>@item.clie_dni</td>
                 <td>@item.clie_razon_social</td>
-                <td>@item.clie_user</td>
-                <td>@item.clie_tipo</td>
+                
                 <td><a asp-action="Editar" asp-controller="Cliente" class="btn btn-secondary" asp-route-id="@item.clie_id">Editar</a></td>
                 <td><a asp-action="Eliminar" asp-controller="Cliente" class="btn btn-danger" asp-route-id="@item.clie_id">Eliminar</a></td>
             </tr>

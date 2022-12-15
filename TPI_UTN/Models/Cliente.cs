@@ -15,7 +15,7 @@ namespace TPI_UTN.Models
         public string? clie_dni { get; set; }
         public string? clie_razon_social { get; set; }
         public int clie_user { get; set; }
-        public int clie_tipo { get; set; }
+//public int clie_tipo { get; set; }
 
     }
 }

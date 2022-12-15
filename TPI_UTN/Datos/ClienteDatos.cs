@@ -31,7 +31,7 @@ namespace TPI_UTN.Datos
                             clie_dni = Convert.ToString(lector["clie_dni"]),
                             clie_razon_social = Convert.ToString(lector["clie_razon_social"]),
                             clie_user = Convert.ToInt32(lector["clie_user"]),
-                            clie_tipo = Convert.ToInt32(lector["clie_tipo"]),
+                           // clie_tipo = Convert.ToInt32(lector["clie_tipo"]),
                         });
                     }
                 }
@@ -68,7 +68,7 @@ namespace TPI_UTN.Datos
                             oCliente.clie_dni = Convert.ToString(lector["clie_dni"]);
                             oCliente.clie_razon_social = Convert.ToString(lector["clie_razon_social"]);
                             oCliente.clie_user = Convert.ToInt32(lector["clie_user"]);
-                            oCliente.clie_tipo = Convert.ToInt32(lector["clie_tipo"]);
+                           // oCliente.clie_tipo = Convert.ToInt32(lector["clie_tipo"]);
                         }
                     }
                 }
@@ -100,7 +100,7 @@ namespace TPI_UTN.Datos
                     cmd.Parameters.AddWithValue("clie_dni", oCliente.clie_dni);
                     cmd.Parameters.AddWithValue("clie_razon_Social", oCliente.clie_razon_social);
                     cmd.Parameters.AddWithValue("clie_user", oCliente.clie_user);
-                    cmd.Parameters.AddWithValue("clie_tipo", oCliente.clie_tipo);
+                  //  cmd.Parameters.AddWithValue("clie_tipo", oCliente.clie_tipo);
 
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -138,7 +138,7 @@ namespace TPI_UTN.Datos
                     cmd.Parameters.AddWithValue("clie_dni", oCliente.clie_dni);
                     cmd.Parameters.AddWithValue("clie_razon_Social", oCliente.clie_razon_social);
                     cmd.Parameters.AddWithValue("clie_user", oCliente.clie_user);
-                    cmd.Parameters.AddWithValue("clie_tipo", oCliente.clie_tipo);
+                   // cmd.Parameters.AddWithValue("clie_tipo", oCliente.clie_tipo);
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.ExecuteNonQuery();
