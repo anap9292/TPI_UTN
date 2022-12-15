@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using practica2.Models;
+using TPI_UTN.Models;
 using System.Diagnostics;
-using practica2.Datos;
+using TPI_UTN.Datos;
 using Microsoft.AspNetCore.Authorization;
 
-namespace practica2.Controllers
+namespace TPI_UTN.Controllers
 {
     //[Authorize]
     public class HomeController : Controller

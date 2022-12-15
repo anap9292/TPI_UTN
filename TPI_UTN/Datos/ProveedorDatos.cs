@@ -1,12 +1,12 @@
-﻿using practica2.Models;
-using practica2.Models.Proveedor;
-using practica2.Datos;
+﻿using TPI_UTN.Models;
+using TPI_UTN.Models.Proveedor;
+using TPI_UTN.Datos;
 using System.Data.SqlClient;
 using System.Data;
 using System;
 
 
-namespace practica2.Datos
+namespace TPI_UTN.Datos
 {
     public class ProveedorDatos
     {

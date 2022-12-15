@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using practica2.Models.Proveedor;
+using TPI_UTN.Models.Proveedor;
 using System.Diagnostics;
-using practica2.Models;
+using TPI_UTN.Models;
 
-using practica2.Datos;
-namespace practica2.Controllers
+using TPI_UTN.Datos;
+namespace TPI_UTN.Controllers
 {
     public class ProveedorController : Controller
     {

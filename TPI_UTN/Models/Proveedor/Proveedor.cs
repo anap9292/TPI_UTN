@@ -1,4 +1,4 @@
-﻿namespace practica2.Models.Proveedor
+﻿namespace TPI_UTN.Models.Proveedor
 {
     public class Proveedor
     {

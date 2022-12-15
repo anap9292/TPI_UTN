@@ -1,4 +1,4 @@
-﻿namespace practica2.Models
+﻿namespace TPI_UTN.Models
 {
     public class Producto
     {
@@ -10,26 +10,5 @@
         public string? imagen { get; set; }
         public string? descripcion { get; set; }
 
-        //public Producto(int id, string nombre, decimal precio, string proveedor, int stock)
-        //{
-        //    this.id = id;
-        //    this.nombre = nombre;
-        //    this.proveedor = proveedor;
-        //    this.stock = stock;
-        //    this.precio = precio;
-        //}
-
-        //public Producto(int id, string nombre, decimal precio, string proveedor, int stock, string descripcion, string imagen)
-        //{
-        //    this.id = id;
-        //    this.nombre = nombre;
-        //    this.proveedor = proveedor;
-        //    this.stock = stock;
-        //    this.precio = precio;
-        //    this.descripcion = descripcion;
-        //    this.imagen = imagen;
-        //}
-
-        //public Producto() { }
     }
 }
