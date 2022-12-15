@@ -32,3 +32,51 @@ body {
         color: white;
         transition: 0.3s;
     }
+
+th {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    padding: 5%;
+}
+/*a:hover {
+           color: yellow;
+}*/
+
+.busqueda {
+    /*justify-content:center;*/
+    padding-left: 20%;
+}
+
+.tarjeta {
+    margin: 5%;
+}
+
+.tarjetaInterior {
+    text-align: center;
+}
+
+.fotoProducto {
+    max-width: 248px;
+    max-height: 248px;
+    margin-left: 14%;
+}
+
+    .fotoProducto img {
+        display: flex;
+    }
+
+.botonCompra {
+    width: 100%;
+}
+
+.formulario {
+    padding: 30%;
+    padding-top: 0%;
+}
+
+#categoriaNombre {
+    text-align: center;
+}
