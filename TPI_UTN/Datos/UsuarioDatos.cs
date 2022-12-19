@@ -6,7 +6,7 @@ namespace TPI_UTN.Datos
 {
     public class UsuarioDatos
     {
-        /*Procedimiento Listar Usuario*/
+        /*Procedimiento Listar login*/
 
         public List<Usuario> ListarUsuario()
         {
@@ -129,7 +129,7 @@ namespace TPI_UTN.Datos
                     cmd.Parameters.AddWithValue("user_nombre", oUsuario.user_nombre);
                     cmd.Parameters.AddWithValue("user_contrasena", oUsuario.user_contrasena);
                     cmd.Parameters.AddWithValue("user_tipo", oUsuario.user_tipo);
-                    cmd.Parameters.AddWithValue("tipo_id", oUsuario.rolAsociado);
+                   // cmd.Parameters.AddWithValue("tipo_id", oUsuario.rolAsociado.tipo_id);
 
 
                     cmd.CommandType = CommandType.StoredProcedure;

@@ -60,7 +60,7 @@ namespace TPI_UTN.Controllers
             }
 
         }
-        //Salir del home de vuelta ala vista login
+        //Salir del home de vuelta a la vista login
         public async Task<IActionResult> Salir()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

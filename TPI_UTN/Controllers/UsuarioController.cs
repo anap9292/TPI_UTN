@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using TPI_UTN.Datos;
 using TPI_UTN.Models;
 
@@ -42,7 +44,7 @@ namespace TPI_UTN.Controllers
 
             if (respuesta)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexUsuario");
             }
             else
             {
@@ -74,7 +76,7 @@ namespace TPI_UTN.Controllers
 
             if (respuesta)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexUsuario");
             }
             else
             {
@@ -100,7 +102,7 @@ namespace TPI_UTN.Controllers
 
             if (respuesta)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("IndexUsuario");
             }
             else
             {
@@ -111,6 +113,7 @@ namespace TPI_UTN.Controllers
         }
 
 
+       
 
 
 
