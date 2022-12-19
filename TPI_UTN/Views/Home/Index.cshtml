@@ -6,7 +6,6 @@
 }
 
         <main>
-
             <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
@@ -60,23 +59,23 @@
         </main>
         <h1>Nuestros productos seleccionados</h1>
 
-        <div class="row">
-        @foreach (Producto producto in this.Model)
-        {         
-        <div class="col-sm-4">
-            <div class="container fotoProducto">
-            <img src=@producto.imagen  class="card-img-top" alt=@producto.nombre>
-            </div>
-            <div class="card tarjeta">
-                <div class="card-body tarjetaInterior">
-                    <h5 class="card-title">$@producto.precio</h5>
-                    <p class="card-text">@producto.nombre</p>
-                    <a asp-area="" asp-controller="Home" asp-action="VerMas" asp-route-id="@producto.id" class="btn btn-outline-dark ">Ver más</a>
-                </div>
-            </div>
+         <div class="row">
+                @foreach (Producto producto in this.Model)
+                {         
+                    <div class="col-sm-4">
+                        <div class="container fotoProducto">
+                            <img src=@producto.imagen  class="card-img-top" alt=@producto.nombre>
+                         </div>
+                            <div class="card tarjeta">
+                                <div class="card-body tarjetaInterior">
+                                    <h5 class="card-title">$@producto.precio</h5>
+                                    <p class="card-text">@producto.nombre</p>
+                    <a asp-area="" asp-controller="Home" asp-action="VerMas" asp-route-id="@producto.id" class="btn btn-outline-dark animate__heartBeat ">Ver más</a>
+                                </div>
+                        </div>
+                    </div>
+                }
         </div>
-        }
-</div>
 
 
 

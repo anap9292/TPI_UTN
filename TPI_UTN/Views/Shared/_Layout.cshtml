@@ -7,59 +7,86 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TPI_UTN.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"  style=" background-color: #e3f2fd;">
+        
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style=" background-color: #ffff;">
+            
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TPI_UTN</a>
+                <a class="navbar-brand animate__animated animate__bounce logoP" asp-area="" asp-controller="Home" asp-action="Index">Tienda Cosmetiks</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                
+
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between m-5">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">SHOP</a>
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-   
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Otro item</a>
-
-
-                        </li>
-
-                    </ul>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Nosotros</a>
+                        </li>                     
+                        <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Contactanos</a>
+                         </li> 
+                        
+                     </ul>
 
                     <form class="d-flex">
-                        <button type="button" class="btn btn-outline-success me-2">INGRESAR</button>
+                        
+                            <a class="btn btn-success  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Index">Ingresar</a>
+                        
                     </form>
 
+                    <!-- if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
+                    {-->
+                       <form class="d-flex">
+                           <button type="button" class="btn btn-outline-danger m-4" asp-controller="" asp-action="">Salir</button>
+                       </form>
+                    
+                <!--Administrador-->
 
+                        <!-- if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
 
-                    <div class="btn-group">
+                {-->
+                    <div class="btn-group d-flex">
                         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Administrador
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
-                            <li><a class="dropdown-item" asp-controller="Usuario" asp-action="Index">Usuarios</a></li>
-
-                            <li><a class="dropdown-item" asp-controller="Proveedor" asp-action="Index">Proveedores</a></li>
-                            <li><a class="dropdown-item"asp-controller="Producto" asp-action="Index">Productos</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            <li><a class="dropdown-item" asp-controller="Usuario" asp-action="IndexUsuario">Usuarios</a></li>
+                            <li><a class="dropdown-item" asp-controller="" asp-action="">Empleados</a></li>
+                            <li><a class="dropdown-item" asp-controller="" asp-action="">Promociones</a></li>
                         </ul>
                     </div>
-                </div>
+                
+               
+                <!--Vendedor-->
 
-
-
-
+                
+                    <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Vendedor
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-controller="Proveedor" asp-action="Index">Proveedores</a></li>
+                            <li><a class="dropdown-item" asp-controller="Producto" asp-action="Index">Productos</a></li>
+                            <li><a class="dropdown-item" asp-controller="" asp-action="">Orden</a></li>
+                        </ul>
+                    </div>
+                
+                 </div>
             </div>
-           
         </nav>
     </header>
+
+   
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -68,20 +95,54 @@
 
 
 
-
-
-
-
-    <footer class="border-top footer text-muted" style=" background-color: #e3f2fd;">
+    <footer class="border-top footer text-muted" >
         <div class="container">
-            &copy; 2022 - TPI_UTN - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - TPI_UTN - 
         </div>
-       
+
+        <ul class="nav justify-content-center">
+
+            <li class="nav-item">
+
+                <p class="nav-link active" aria-current="page" href="#">Preguntas Frecuentes</p>
+
+            </li>
+
+            <li class="nav-item">
+
+                <p class="nav-link" href="#">Contactanos</p>
+
+            </li>
+
+            <li class="nav-item">
+
+                <p class="nav-link" href="#">Nosotros</p>
+
+            </li>
+
+
+            <li class="nav-item">
+
+                <p class="nav-link" href="#">Terminos y condiciones</p>
+
+            </li>
+
+            <li class="nav-item">
+
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+            </li>
+
+           
+
+        </ul>
 
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+   
 </body>
 </html>

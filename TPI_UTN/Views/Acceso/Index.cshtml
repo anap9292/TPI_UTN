@@ -1,0 +1,14 @@
+﻿@model Usuario
+<h1>La pagina de Login funciona!</h1>
+<form method="post" asp-action="Index" asp-controller="Acceso">
+    <div class="mb-3 col-6">
+        <label class="form-label">Nombre usuario</label>
+        <input asp-for="user_nombre" type="text" class="form-control">
+    </div>
+    <div class="mb-3 col-6">
+        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+        <input asp-for="user_contrasena" type="password" class="form-control">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>

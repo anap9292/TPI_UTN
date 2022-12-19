@@ -1,0 +1,32 @@
+﻿@model Usuario
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>Pagina de edición</h2>
+<form asp-action="Editar" asp-controller="Usuario" method="post">
+    <input asp-for="usuario_id" type="hidden" class="form-control" /> <!--esta oculto y va a traer el id-->
+    <div class="container">
+        <div class="col-6">
+            <label>Nombre Usuario</label>
+            <input asp-for="user_nombre" type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label>Contraseña</label>
+            <input asp-for="user_contrasena" type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label>Tipo de usuario</label>
+            <input asp-for="user_tipo" type="number" class="form-control">
+        </div>
+        <div class="col-6">
+            <label>Tipo de rol asociado</label>
+            <input asp-for="rolAsociado" type="number" class="form-control">
+        </div>
+        
+        <button type="submit" class="btn btn-success">Enviar</button>
+    </div>
+  
+
+</form>

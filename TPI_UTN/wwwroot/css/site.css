@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 html {
   font-size: 14px;
 }
@@ -9,12 +12,23 @@ html {
 }
 
 html {
-  position: relative;
+ position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    /* margin-bottom: 60px;*/
+   
+}
+.logoP {
+    font-family: 'Monotype Corsiva';
+    font-size: 50px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width:8em;
+    text-align:center;
+}
+.logoP:hover{
+
 }
 .INGRESAR {
     height: 52px;
@@ -79,4 +93,17 @@ h1 {
 
 #categoriaNombre {
     text-align: center;
+}
+/*Contendor superior*/
+.conten-sup{
+    
+}
+.txt-animado {
+    color: blueviolet;
+    height: 1em;
+}
+footer {
+    width: 100%;
+    background: linear-gradient(to right, #fca9e3, #ed26b1);
+    padding-top: 1em;
 }

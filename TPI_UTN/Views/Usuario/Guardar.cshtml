@@ -1,0 +1,40 @@
+﻿@model Usuario
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!--En esta pagina se guardaran los Usuarios a traves de un formulario-->
+<h1>Vista de guardar funciona!</h1>
+
+
+
+<h2>Nuevo Usuario</h2>
+<form asp-action="Guardar" asp-controller="Usuario" method="post">
+    <div class=" col-6">
+        <label>Nombre Usuario</label>
+        <input asp-for="user_nombre" type="text" class="form-control">
+    </div>
+    <div class=" col-6">
+        <label>Contraseña</label>
+        <input asp-for="user_contrasena" type="text" class="form-control">
+    </div>
+    <div class=" col-6">
+        <label>Tipo de usuario</label>
+        <input asp-for="user_tipo" type="number" class="form-control" placeholder="1 Admin, 2 Vendedor, 3 CLiente">
+    </div>
+
+
+    <!--  <div class=" col-6">
+         <label>Tipo cliente</label>
+         <input asp-for="clie_tipo" type="number" class="form-control" placeholder="1 Administrador,2 Vendedor,3 Cliente">
+
+      </div> -->
+
+
+    <button type="submit">Enviar</button>
+
+
+
+</form>
