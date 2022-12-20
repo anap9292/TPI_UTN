@@ -1,0 +1,18 @@
+﻿@using TPI_UTN.Models.Proveedor
+@model Categoria
+
+
+<h1>Agregar una categoría</h1>
+
+
+<form asp-action="Guardar" asp-controller="Categoria" method="post">
+
+        <label>Nombre</label>
+        <input asp-for="nombre" type="text" class="form-control">
+
+     
+    <button type="submit">Enviar</button>
+
+
+
+</form>

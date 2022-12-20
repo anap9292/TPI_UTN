@@ -1,0 +1,21 @@
+﻿@using TPI_UTN.Models.Proveedor
+@model Categoria
+
+
+<h1>Editar una categoría</h1>
+
+
+<form asp-action="Editar" asp-controller="Categoria" method="post">
+
+    <input asp-for="id" type="hidden" class="form-control" value="@Model.id">
+
+
+    <label>Nombre</label>
+    <input asp-for="nombre" type="text" class="form-control" value = "@Model.nombre">
+
+
+    <button type="submit">Enviar</button>
+
+
+
+</form>

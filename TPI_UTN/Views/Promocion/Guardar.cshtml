@@ -1,0 +1,24 @@
+﻿@using TPI_UTN.Models
+@model Promocion
+
+
+<h1>Agregar una promocion</h1>
+
+
+<form asp-action="Guardar" asp-controller="Promocion" method="post">
+
+    <label>Nombre</label>
+    <input asp-for="nombre" type="text" class="form-control">
+    <label>Descuento</label>
+    <input asp-for="descuento" type="text" class="form-control">
+    <label>Imagen</label>
+    <input asp-for="imagen" type="text" class="form-control">
+    <label>Descripcion</label>
+    <input asp-for="descripcion" type="text" class="form-control">
+
+     
+    <button type="submit">Enviar</button>
+
+
+
+</form>

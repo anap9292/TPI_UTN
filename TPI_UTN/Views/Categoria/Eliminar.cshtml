@@ -1,0 +1,14 @@
+﻿@using TPI_UTN.Models.Proveedor
+@model Categoria
+
+<h1>Eliminar producto</h1>
+<div class="formulario">
+
+
+    <form asp-action="Eliminar" asp-controller="Categoria" method="post">
+        <input asp-for="id" type="hidden" class="form-control" value="@Model.id" />
+        <p>¿Seguro que quieres eliminar todos los registros de @Html.DisplayTextFor(m => m.nombre)?</p>
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+
+</div>
