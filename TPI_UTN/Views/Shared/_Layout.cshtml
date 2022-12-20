@@ -42,35 +42,32 @@
                             <a class="btn btn-success  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Index">Ingresar</a>
                         
                     </form>
+                  
 
                     <!-- if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
                     {-->
-                       <form class="d-flex">
-                           <button type="button" class="btn btn-outline-danger m-4" asp-controller="" asp-action="">Salir</button>
-                       </form>
+                       
                     
                 <!--Administrador-->
 
-                        <!-- if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
-
-                {-->
-                    <div class="btn-group d-flex">
-                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Administrador
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
-                            <li><a class="dropdown-item" asp-controller="Usuario" asp-action="IndexUsuario">Usuarios</a></li>
-                            <li><a class="dropdown-item" asp-controller="" asp-action="">Empleados</a></li>
-                            <li><a class="dropdown-item" asp-controller="" asp-action="">Promociones</a></li>
-                        </ul>
-                    </div>
-                
-               
-                <!--Vendedor-->
-
-                
-                    <div class="btn-group">
+                       @if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
+                    {
+                        <form class="d-flex">
+                            <a class="btn btn-danger  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                        </form>
+                        <div class="btn-group d-flex">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrador
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
+                                <li><a class="dropdown-item" asp-controller="Usuario" asp-action="IndexUsuario">Usuarios</a></li>
+                                <li><a class="dropdown-item" asp-controller="" asp-action="">Empleados</a></li>
+                                <li><a class="dropdown-item" asp-controller="" asp-action="">Promociones</a></li>
+                            </ul>
+                        </div>  
+                          <!--Vendedor-->
+                        <div class="btn-group">
                         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Vendedor
                         </button>
@@ -80,6 +77,11 @@
                             <li><a class="dropdown-item" asp-controller="Orden" asp-action="Index">Orden</a></li>
                         </ul>
                     </div>
+
+                    }
+
+                
+                  
                 
                  </div>
             </div>
