@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using TPI_UTN.Models;
+using TPI_UTN.Models.Proveedor;
 
 namespace TPI_UTN.Datos
 {
@@ -161,5 +162,147 @@ namespace TPI_UTN.Datos
             }
             return respuesta;
         }
+
+        public List<Producto> ListarProducto(int id)
+        {
+
+            //Recibir informacion
+            var oLista = new List<Producto>();
+
+            //Instancia de la conexión
+            var conexion = new Conexion();
+
+            //usando using, defiimos el tiempo de vida de la conexion
+            using (var conexionTemp = new SqlConnection(conexion.getCadenaSQL()))
+            {
+                conexionTemp.Open();
+                SqlCommand cmd = new SqlCommand("ListarProductosPorPromocion", conexionTemp);
+                cmd.Parameters.AddWithValue("id", id); //busca valores
+                cmd.CommandType = CommandType.StoredProcedure;
+                // comienza la lectura de datos
+                using (var lector = cmd.ExecuteReader())
+                {
+                    //mientras hayan registros
+                    while (lector.Read())
+                    {
+                        oLista.Add(new Producto()
+                        {
+                            id = Convert.ToInt32(lector["prod_id"]),
+                            nombre = Convert.ToString(lector["prod_nombre"]),
+                            imagen = Convert.ToString(lector["prod_imagen"]),
+                            descripcion = Convert.ToString(lector["prod_descripcion"]),
+                            precio = Convert.ToDecimal(lector["prod_precio"]),
+                            stock = Convert.ToDecimal(lector["prod_stock"])
+
+                        });
+                    }
+                    return oLista;
+                }
+            }
+
+        }
+
+        public List<PromocionProducto> ListarPP(int id)
+        {
+
+            //Recibir informacion
+            var oLista = new List<PromocionProducto>();
+
+            //Instancia de la conexión
+            var conexion = new Conexion();
+
+            //usando using, defiimos el tiempo de vida de la conexion
+            using (var conexionTemp = new SqlConnection(conexion.getCadenaSQL()))
+            {
+                conexionTemp.Open();
+                SqlCommand cmd = new SqlCommand("ListarProductosPorPromocion", conexionTemp);
+                cmd.Parameters.AddWithValue("id", id); //busca valores
+                cmd.CommandType = CommandType.StoredProcedure;
+                // comienza la lectura de datos
+                using (var lector = cmd.ExecuteReader())
+                {
+                    //mientras hayan registros
+                    while (lector.Read())
+                    {
+                        oLista.Add(new PromocionProducto()
+                        {
+                            id = Convert.ToInt32(lector["pp_id"]),
+                            fechaInicio = Convert.ToDateTime(lector["pp_fecha_inicio"]),
+                            fechaFinal = Convert.ToDateTime(lector["pp_fecha_final"]),
+                            producto = Convert.ToInt32(lector["pp_producto"]),
+                            promocion = Convert.ToInt32(lector["pp_promocion"])
+
+                        });
+                    }
+                    return oLista;
+                }
+            }
+
+        }
+
+        public bool AgregarProducto(PromocionProducto objeto)
+        {
+            bool respuesta;
+            try
+            {
+                var conexion = new Conexion();
+                using (var conexionTemp = new SqlConnection(conexion.getCadenaSQL()))
+                {
+                    conexionTemp.Open();
+
+                    SqlCommand cmd = new SqlCommand("GuardarProductoPorPromocion", conexionTemp);
+                    cmd.Parameters.AddWithValue("promocion", objeto.promocion);
+                    cmd.Parameters.AddWithValue("producto", objeto.producto);
+                    cmd.Parameters.AddWithValue("fechaInicio", objeto.fechaInicio);
+                    cmd.Parameters.AddWithValue("fechaFinal", objeto.fechaFinal);
+
+
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                respuesta = true;
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                respuesta = false;
+            }
+            return respuesta;
+        }
+
+        public bool EliminarPP(PromocionProducto objeto)
+        {
+            bool respuesta;
+            try
+            {
+                var conexion = new Conexion();
+                using (var conexionTemp = new SqlConnection(conexion.getCadenaSQL()))
+                {
+                    conexionTemp.Open();
+
+                    SqlCommand cmd = new SqlCommand("EliminarPP", conexionTemp);
+                    cmd.Parameters.AddWithValue("promocion", objeto.promocion);
+                    cmd.Parameters.AddWithValue("producto", objeto.producto);
+                    cmd.Parameters.AddWithValue("fechaInicio", objeto.fechaInicio);
+                    cmd.Parameters.AddWithValue("fechaFinal", objeto.fechaFinal);
+                    //modificar valores
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                respuesta = true;
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                respuesta = false;
+            }
+            return respuesta;
+        }
+
     }
 }

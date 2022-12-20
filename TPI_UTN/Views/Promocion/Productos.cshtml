@@ -1,0 +1,41 @@
+﻿@using TPI_UTN.Models
+@model List<PromocionProducto>
+<h1>Productos de la promocion</h1>
+
+@*<a asp-action="Guardar" asp-controller="Promocion" class="btn btn-primary">Crear Promocion</a>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Fecha inicio</th>
+            <th scope="col">Fecha final</th>
+      @*      <th scope="col">Acciones</th>*@
+        </tr>
+    </thead>
+
+
+
+
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <th scope="row">@item.id</th>
+                <td><img width="50px" height="50px" src="@item.oProducto.imagen"></img></td>
+                <td>@item.oProducto.nombre</td>
+                <td>@item.fechaInicio</td>
+                <td>@item.fechaFinal</td>
+
+              @*  <td>
+                    <a asp-area="" asp-controller="Promocion" asp-action="Editar" asp-route-id="@item.id" class="btn btn-secondary">Modificar</a>
+                    <a asp-area="" asp-controller="Promocion" asp-action="Eliminar" asp-route-id="@item.id" class="btn btn-danger">Eliminar</a>
+                </td>*@
+            </tr>
+        </tbody>
+    }
+
+</table>
