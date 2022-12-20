@@ -1,0 +1,28 @@
+﻿@model Empleado
+
+<h2>Editar Empleado</h2>
+<form asp-action="Editar" asp-controller="Empleado" method="post">
+    <input asp-for="empl_id" type="hidden" class="form-control" /> <!--esta oculto y va a traer el id-->
+    <div class="container">
+        <div class="col-6">
+            <label>Nombre</label>
+            <input asp-for="empl_nombre" type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label>Apellido</label>
+            <input asp-for="empl_apellido" type="text" class="form-control">
+        </div>
+        <div class="col-6">
+            <label>ID Supervisor</label>
+            <input asp-for="empl_supervisor_id" type="number" class="form-control">
+        </div>
+        <div class="col-6">
+            <label>Usuario Empleado</label>
+            <input asp-for="empl_user" type="number" class="form-control">
+        </div>
+        
+        <button type="submit" class="btn btn-success">Enviar</button>
+    </div>
+
+
+</form>
