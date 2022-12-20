@@ -7,7 +7,7 @@
 
     <form asp-action="Eliminar" asp-controller="Producto" method="post">
         <input asp-for="id" type="hidden" class="form-control" />
-        <p>¿Seguro que quieres eliminar el registro de @Html.DisplayTextFor(m => m.nombre)?</p>
+        <p>¿Seguro que quieres eliminar todos los registros de @Html.DisplayTextFor(m => m.nombre)?</p>
         <button type="submit" class="btn btn-danger">Eliminar</button>
     </form>
 

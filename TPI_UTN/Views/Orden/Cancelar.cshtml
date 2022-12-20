@@ -1,0 +1,15 @@
+﻿@using TPI_UTN.Models
+@model Orden
+
+<h1>Cancelar orden</h1>
+<div class="formulario">
+
+
+    <form asp-action="Cancelar" asp-controller="Orden" method="post">
+        <input asp-for="id" type="hidden" class="form-control" />
+        <h4>¿Seguro que quieres cancelar la orden @Html.DisplayTextFor(m => m.id)?</h4>
+        <p>Se reincorporará la cantidad de stock del prodcuto</p>
+        <button type="submit" class="btn btn-danger">Cancelar compra</button>
+    </form>
+
+</div>

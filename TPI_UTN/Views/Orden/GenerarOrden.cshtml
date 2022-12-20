@@ -1,0 +1,31 @@
+﻿@using TPI_UTN.Models
+@model Orden
+<h1> ¿Seguro que quiere comprar este producto?</h1>
+
+<div class="row">
+    <div class="col-sm-6 ">
+        <img src=@this.Model.productoImagen class="fotoProducto" />
+    </div>
+    <div class="col-sm-6">
+           <h2>@this.Model.productoNombre</h2>
+
+              <form asp-action="GenerarOrden" asp-controller="Orden" method="post">
+
+            <input type="hidden" asp-for="id" value="@this.Model.id" />
+            <input type="hidden" asp-for ="empleado" value = "@this.Model.empleado"/>
+            <input type="hidden" asp-for="cliente" value="@this.Model.cliente" />
+            <input type="hidden" asp-for="producto" value="@this.Model.producto" />
+            <input type="hidden" asp-for="productoNombre" value="@this.Model.productoNombre" />
+            <input type="hidden" asp-for="productoImagen" value="@this.Model.productoImagen" />
+            <input type="hidden" asp-for="descuento" value="@this.Model.descuento" />
+            
+            <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input asp-for="cantidad" type="number" class="form-control" id="NuevaOrdCant" placeholder="">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Comprar</button>
+        </form>
+    </div>
+</div>
+

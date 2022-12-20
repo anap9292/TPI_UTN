@@ -1,0 +1,52 @@
+﻿@using TPI_UTN.Models
+@model List<Orden>
+
+
+<h1>ABM ÓRDENES DE COMPRA</h1>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Producto (ID)</th>
+                <th scope="col">Precio Unitario</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Descuento</th>
+                <th scope="col">Importe</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cliente (ID)</th>
+                <th scope="col">Empleado (ID)</th>
+                <th scope="col">Acciones</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Orden orden in this.Model)
+            {
+                <tr>
+                    <th scope="row">@orden.id</th>
+                    <td><img width="50px"height="50px" src="@orden.productoImagen"></img></td>
+                    <td>@(orden.productoNombre  + " (" + orden.producto + ")")</td>
+                    <td>@orden.precioUnitario</td>
+                    <td>@orden.cantidad</td>
+                    <td>@orden.descuento</td>
+                    <td>@(orden.cantidad * orden.precioUnitario - (orden.cantidad * orden.precioUnitario) * orden.descuento)</td>
+                    <td>@orden.fecha</td>
+                    <td>@(orden.clienteNombre + " " + orden.clienteApellido + " (" + orden.cliente + ")")</td>
+                    <td>@(orden.empleadoNombre + " " + orden.empleadoApellido + " (" + orden.empleado + ")")</td>
+
+
+                    <td>
+                        <a asp-area="" asp-controller="Orden" asp-action="Editar" asp-route-id="@orden.id" class="btn btn-secondary">Modificar</a>
+                        <a asp-area="" asp-controller="Orden" asp-action="Eliminar" asp-route-id="@orden.id" class="btn btn-danger">Eliminar</a>
+                        <a asp-area="" asp-controller="Orden" asp-action="Cancelar" asp-route-id="@orden.id" class="btn btn-info">Cancelar compra</a>
+
+                    </td>
+                </tr>
+            }
+    </table>
+    <a asp-area="" asp-controller="Orden" asp-action="Guardar" class="btn btn-primary">Agregar una orden</a>
+</div>
+

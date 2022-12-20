@@ -8,7 +8,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Categoría</th>
-         @*       <th scope="col">Acciones</th>*@
+                <th scope="col">Acciones</th>
    
             </tr>
         </thead>
@@ -18,12 +18,9 @@
                 <tr>
                     <th scope="row">@item.id</th>
                     <td id="categoriaNombre">@item.nombre</td>
-                   @* <td>
-                        @{
-                            Model.categoria = item.nombre;
-                        }
-                        <a asp-area="" asp-controller="Proveedor" asp-action="EliminarCategoria" asp-route-id=@Model class="btn btn-danger">Eliminar</a>
-                    </td>*@
+                    <td>
+                        <a asp-area="" asp-controller="Proveedor" asp-action="EliminarCategoria" asp-route-proveedor="@Model.id" asp-route-categoria="@item.nombre" class="btn btn-danger">Eliminar</a>
+                    </td>
                 </tr>
             }
             </tbody>
@@ -32,5 +29,5 @@
 @{
     Proveedor p = new Proveedor() { id = this.Model.id };
 }
-    <a asp-area="" asp-controller="Proveedor" asp-action="AgregarCategoria" asp-route-id=@this.Model.id class="btn btn-primary">Agregar una categoría a este proveedor</a>
+    <a asp-area="" asp-controller="Proveedor" asp-action="AgregarCategoria" asp-route-id=@Model.id class="btn btn-primary">Agregar una categoría a este proveedor</a>
    
