@@ -101,7 +101,7 @@ namespace TPI_UTN.Controllers
 
             if (respuesta)
             {
-                return RedirectToAction("Categorias");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -109,9 +109,12 @@ namespace TPI_UTN.Controllers
             }
         }
 
-        public IActionResult EliminarCategoria(Proveedor p)
+        [HttpGet]
+        public IActionResult EliminarCategoria(int proveedor, string categoria)
         {
-            CategoriaProveedor cp = new CategoriaProveedor() { proveedor = p.id, categoria = p.categoria };
+            CategoriaProveedor cp = new CategoriaProveedor();
+            cp.proveedor = proveedor;
+            cp.categoria = categoria;
 
             return View(cp);
         }
@@ -119,15 +122,16 @@ namespace TPI_UTN.Controllers
         [HttpPost]
         public IActionResult EliminarCategoria(CategoriaProveedor cp)
         {
+
             var respuesta = proveedorDatos.EliminarCategoria(cp);
 
             if (respuesta)
             {
-                return RedirectToAction("Categoria");
+                return RedirectToAction("Index");
             }
             else
             {
-                return View();
+                return View(cp);
             }
         }
 

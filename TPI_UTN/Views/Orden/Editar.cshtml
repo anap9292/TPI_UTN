@@ -1,0 +1,47 @@
+﻿@using TPI_UTN.Models
+@model Orden
+
+<h1>Editar una orden de compra</h1>
+<div class="formulario">
+    <form asp-action="Editar" asp-controller="Orden" method="post">
+
+        <div class="form-group">
+            <label for="producto">Producto ID</label>
+            <input asp-for="producto" type="number" class="form-control" placeholder="El ID del producto" value=@this.Model.producto >
+            <small class="form-text text-muted">¿No recuerda el ID?.</small>
+            <a asp-area="" asp-controller="Producto" asp-action="Index" class="btn btn-secondary">Ver productos</a>
+        </div>
+
+        <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input asp-for="cantidad"  class="form-control" placeholder="¡Se descontará de la cantidad de stock!" value=@this.Model.cantidad />
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio unitario</label>
+            <input asp-for="precioUnitario" type="number" class="form-control" placeholder="Puede no ser el actual del producto..." value=@this.Model.precioUnitario>
+        </div>
+
+        <div class="form-group">
+            <label for="descuento">Descuento</label>
+            <input asp-for="descuento"  class="form-control" placeholder="En decimales!" value=@this.Model.descuento>
+            <small class="form-text text-muted">Ej: Si el descuento es del 10%, ingrese 0.1. Si es del 5%, entonces 0.05. </small>
+        </div>
+
+        <div class="form-group">
+            <label for="cliente">Cliente ID</label>
+            <input asp-for="cliente" type="number" class="form-control" placeholder="El ID del cliente registrado" value=@this.Model.cliente>
+            <small class="form-text text-muted">¿No recuerda el ID?.</small>
+            <a asp-area="" asp-controller="Cliente" asp-action="Index" class="btn btn-secondary">Ver clientes</a>
+        </div>
+
+        <div class="form-group">
+            <label for="empleado">Vendedor ID</label>
+            <input asp-for="empleado" type="number" class="form-control" placeholder="Asígnele esta compra a un vendedor." value=@this.Model.empleado>
+            <small class="form-text text-muted">¿No recuerda el ID?.</small>
+            <a asp-area="" asp-controller="Empleado" asp-action="Index" class="btn btn-secondary">Ver empleados</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+
+    </form>
+</div>

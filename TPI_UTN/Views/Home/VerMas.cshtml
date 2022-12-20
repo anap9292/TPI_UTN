@@ -15,7 +15,7 @@
         @foreach( var text in this.Model.descripcion.Split("\r\n")){
          <p class="text-black descripcion">@text</p>
         }
-        <a asp-area="" asp-controller="Auth" asp-action="Index" class="btn btn-outline-success botonCompra">Comprar</a>
+        <a asp-area="" asp-controller="Orden" asp-action="GenerarOrden" asp-route-id="@this.Model.id" class="btn btn-outline-success botonCompra">Comprar</a>
      </div>
 </div>
 

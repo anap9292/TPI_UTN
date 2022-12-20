@@ -1,18 +1,18 @@
 ﻿@using TPI_UTN.Models.Proveedor
-@model Proveedor
+@model CategoriaProveedor
 
-<h1>Eliminar a @Model.nombre</h1>
+<h1>Eliminar a @Model.categoria de @Model.proveedor</h1>
 <div class="formulario">
 
 
-    <form asp-action="Eliminar" asp-controller="Proveedor" method="post">
-        <input asp-for="id" type="hidden" class="form-control" />
-        <p>¿Seguro que quieres eliminar el registro de @Html.DisplayTextFor(m => m.nombre)?</p>
+    <form asp-action="EliminarCategoria" asp-controller="Proveedor" method="post">
+        <input asp-for="proveedor" type="hidden" class="form-control" value="@Model.proveedor" />
+        <input asp-for="categoria" type="hidden" class="form-control" value="@Model.categoria" />
+        <p>¿Seguro que quieres eliminar la categoría @Model.categoria de @Model.proveedor?</p>
         <button type="submit" class="btn btn-danger">Eliminar</button>
     </form>
 
 </div>
-
 
 
 

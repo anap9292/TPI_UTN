@@ -2,10 +2,13 @@
 {
     public class CategoriaProveedor
     {
-        public int proveedor;
-        public string categoria;
-        //List<Categoria> categoria = new List<Categoria>();
-        //List<Proveedor> proveedores = new List<Proveedor>();
+        public int id { get; set; }
+        public int? proveedor { get; set; }
+        public int? categoriaID { get; set; }
+        public string? categoria { get; set; }
+
+        Producto oProducto { get; set; }
+        Categoria oCategoria { get; set; }
 
 
     }
