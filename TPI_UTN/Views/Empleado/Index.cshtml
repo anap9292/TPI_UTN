@@ -1,16 +1,34 @@
 ﻿@model List<Empleado>
-<h1>Vista de listar funciona?</h1>
 
-<a asp-action="Guardar" asp-controller="Empleado" class="btn btn-primary">Crear Empleado</a>
+<div>
+   <h4>Listado de Empleados</h4>
+</div>
+    
+<hr>
 
-<table class="table">
-    <thead>
+
+  <nav class="navbar bg-light">
+<div class="container-fluid">
+    <span class="navbar-text">
+
+            <a asp-action="Guardar" asp-controller="Empleado" class="btn btn-outline-dark">Crear Empleado</a>
+    </span>
+</div>
+</nav>
+
+
+
+<table class=" table table-bordered table-hover">
+    <thead class="table-secondary">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
-            <th scope="col">ID SUpervisor</th>
+            <th scope="col">ID Supervisor</th>
             <th scope="col">Usuario empleado</th>
+             <th scope="col">Acciones</th>
+            <th scope="col">Acciones</th>
+
          
         </tr>
     </thead>
@@ -28,9 +46,10 @@
                 <td>@item.empl_apellido</td>
                 <td>@item.empl_supervisor_id</td>
                 <td>@item.empl_user</td>
-
+              
                 <td><a asp-action="Editar" asp-controller="Empleado" class="btn btn-secondary" asp-route-id="@item.empl_id">Editar</a></td>
-                <td><a asp-action="Eliminar" asp-controller="Empleado" class="btn btn-danger" asp-route-id="@item.empl_id">Eliminar</a></td>
+              
+              <td><a asp-action="Eliminar" asp-controller="Empleado" class="btn btn-danger" asp-route-id="@item.empl_id">Eliminar</a></td>
             </tr>
         </tbody>
     }
