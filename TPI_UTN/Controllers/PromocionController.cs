@@ -8,6 +8,7 @@ namespace TPI_UTN.Controllers
     public class PromocionController : Controller
     {
         PromocionDatos promocionDatos = new PromocionDatos();
+        ProductoDatos productoDatos = new ProductoDatos();
 
 
         public IActionResult Index()
@@ -57,7 +58,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(objeto);
             }
         }
 
@@ -80,7 +81,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(objeto);
             }
 
 
@@ -88,6 +89,7 @@ namespace TPI_UTN.Controllers
 
         public IActionResult Productos(int id)
         {
+            Promocion promocion = promocionDatos.Obtener(id);
             List<Producto> productos = promocionDatos.ListarProducto(id);
             List<PromocionProducto> pps = promocionDatos.ListarPP(id);
             foreach (var item in pps)
@@ -100,57 +102,96 @@ namespace TPI_UTN.Controllers
                     }
                 }
             }
-            return View(pps);
+
+            promocion.PP = pps;
+
+            return View(promocion);
         }
 
-        //public IActionResult AgregarProducto(int id)
-        //{
-        //    var objeto = promocionDatos.Obtener(id);
-        //    return View(objeto);
-        //}
+        public IActionResult AgregarProducto(int id)
+        {
+            var promocion = promocionDatos.Obtener(id);
+            PromocionProducto pp = new PromocionProducto();
+            pp.promocion = id;
+            pp.oPromocion = promocion;
+            return View(pp);
+        }
 
 
-        //[HttpPost]
-        //public IActionResult AgregarProducto(Promocion p)
-        //{
-        //    PromocionProducto pp = new PromocionProducto() { promocion = p.id, categoria = p.categoria };
-        //    var respuesta = proveedorDatos.AgregarCategoria(cp);
+        [HttpPost]
+        public IActionResult AgregarProducto(PromocionProducto pp)
+        {
+            //PromocionProducto pp = new PromocionProducto() { promocion = p.id, producto = p.producto.id };
+            var respuesta = promocionDatos.AgregarProducto(pp);
 
-        //    if (respuesta)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-        //}
+            if (respuesta)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                pp.oPromocion = promocionDatos.Obtener(pp.promocion);
+                return View(pp);
+            }
+        }
 
-        //[HttpGet]
-        //public IActionResult EliminarCategoria(int proveedor, string categoria)
-        //{
-        //    CategoriaProveedor cp = new CategoriaProveedor();
-        //    cp.proveedor = proveedor;
-        //    cp.categoria = categoria;
+        public IActionResult EliminarProducto(int id, int promocion, int producto)
+        {
+            PromocionProducto pp = new PromocionProducto();
+            pp.oPromocion = promocionDatos.Obtener(promocion);
+            pp.oProducto = productoDatos.Obtener(producto);
+            pp.id = id;
+            pp.promocion = promocion;
+            pp.producto = producto;
+            return View(pp);
+        }
 
-        //    return View(cp);
-        //}
+        [HttpPost]
+        public IActionResult EliminarProducto(PromocionProducto pp)
+        {
 
-        //[HttpPost]
-        //public IActionResult EliminarCategoria(CategoriaProveedor cp)
-        //{
+            var respuesta = promocionDatos.EliminarPP(pp.id);
 
-        //    var respuesta = proveedorDatos.EliminarCategoria(cp);
+            if (respuesta)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                pp.oPromocion = promocionDatos.Obtener(pp.promocion);
+                pp.oProducto = productoDatos.Obtener(pp.producto);
+                return View(pp);
+            }
+        }
 
-        //    if (respuesta)
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View(cp);
-        //    }
-        //}
+        public IActionResult EditarProducto(int id, int promocion, int producto)
+        {
+            PromocionProducto pp = new PromocionProducto();
+            pp.oPromocion = promocionDatos.Obtener(promocion);
+            pp.oProducto = productoDatos.Obtener(producto);
+            pp.id = id;
+            pp.promocion = promocion;
+            pp.producto = producto;
+            return View(pp);
+        }
+
+
+        [HttpPost]
+        public IActionResult EditarProducto(PromocionProducto pp)
+        {
+            var respuesta = promocionDatos.EditarPP(pp);
+
+            if (respuesta)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                pp.oPromocion = promocionDatos.Obtener(pp.promocion);
+                pp.oProducto = productoDatos.Obtener(pp.producto);
+                return View(pp);
+            }
+        }
 
 
 

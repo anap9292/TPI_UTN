@@ -7,14 +7,23 @@
 
 <form asp-action="Guardar" asp-controller="Promocion" method="post">
 
-    <label>Nombre</label>
-    <input asp-for="nombre" type="text" class="form-control">
-    <label>Descuento</label>
-    <input asp-for="descuento" type="text" class="form-control">
-    <label>Imagen</label>
-    <input asp-for="imagen" type="text" class="form-control">
-    <label>Descripcion</label>
-    <input asp-for="descripcion" type="text" class="form-control">
+    <div>
+        <label>Nombre</label>
+        <input asp-for="nombre" type="text" class="form-control">
+    </div>
+    <div>
+        <label>Descuento</label>
+        <input asp-for="descuento" type="text" class="form-control">
+        <small class="form-text text-muted">Ej: Si el descuento es del 10%, ingrese 0,1. Si es del 5%, entonces 0,05. </small>
+    </div>
+    <div>
+        <label>Imagen</label>
+        <input asp-for="imagen" type="text" class="form-control" >
+    </div>
+    <div>
+        <label>Descripcion</label>
+        <input asp-for="descripcion" type="text" class="form-control">
+    </div>
 
      
     <button type="submit">Enviar</button>

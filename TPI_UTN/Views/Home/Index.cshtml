@@ -60,20 +60,24 @@
         <h1>Nuestros productos seleccionados</h1>
 
          <div class="row">
+             
                 @foreach (Producto producto in this.Model)
-                {         
-                    <div class="col-sm-4">
-                        <div class="container fotoProducto">
-                            <img src=@producto.imagen  class="card-img-top" alt=@producto.nombre>
-                         </div>
-                            <div class="card tarjeta">
-                                <div class="card-body tarjetaInterior">
-                                    <h5 class="card-title">$@producto.precio</h5>
-                                    <p class="card-text">@producto.nombre</p>
-                    <a asp-area="" asp-controller="Home" asp-action="VerMas" asp-route-id="@producto.id" class="btn btn-outline-dark animate__heartBeat ">Ver más</a>
-                                </div>
+                {     
+                    if(producto.stock > 0) 
+                    {
+                        <div class="col-sm-4">
+                            <div class="container fotoProducto">
+                                <img src=@producto.imagen  class="card-img-top" alt=@producto.nombre>
+                             </div>
+                                <div class="card tarjeta">
+                                    <div class="card-body tarjetaInterior">
+                                        <h5 class="card-title">$@producto.precio</h5>
+                                        <p class="card-text">@producto.nombre</p>
+                                        <a asp-area="" asp-controller="Home" asp-action="VerMas" asp-route-id="@producto.id" class="btn btn-outline-dark animate__heartBeat ">Ver más</a>
+                                    </div>
+                            </div>
                         </div>
-                    </div>
+                    }
                 }
         </div>
 

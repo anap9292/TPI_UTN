@@ -1,0 +1,20 @@
+﻿@using TPI_UTN.Models
+@model PromocionProducto
+
+<h1>Eliminar a @Model.oProducto.nombre de @Model.oPromocion.nombre</h1>
+
+<h4>¿Seguro que quiere eliminar todos los registros de @Model.oProducto.nombre de @Model.oPromocion.nombre?</h4>
+
+<form asp-action="EliminarProducto" asp-controller="Promocion" method="post">
+
+    <input asp-for="id" type="hidden" value="@Model.id" />
+    <input asp-for="producto" type="hidden" value="@Model.producto"  />
+    <input asp-for="promocion" type="hidden" value="@Model.promocion" />
+
+
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+
+
+
+</form>

@@ -90,7 +90,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(orden);
             }
         }
 
@@ -111,7 +111,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(orden);
             }
         }
 
@@ -132,7 +132,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(orden);
             }
         }
 

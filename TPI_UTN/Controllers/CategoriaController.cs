@@ -56,7 +56,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(objeto);
             }
         }
 
@@ -79,7 +79,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(objeto);
             }
 
 

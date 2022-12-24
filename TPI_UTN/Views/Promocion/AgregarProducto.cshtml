@@ -1,0 +1,26 @@
+﻿@using TPI_UTN.Models
+@model PromocionProducto
+
+<h1>Agrega un producto a la promoción @Model.oPromocion.nombre</h1>
+
+<form asp-action="AgregarProducto" asp-controller="Promocion" method="post">
+
+    <div>
+        <label>Producto ID</label>
+        <input asp-for="producto" type="text" class="form-control"/>
+        <small class="form-text text-muted">¿No recuerda el ID?.</small>
+        <a asp-area="" asp-controller="Producto" asp-action="Index" class="btn btn-secondary">Ver productos</a>
+    </div>
+    <label>Fecha inicio</label>
+    <input asp-for="fechaInicio" type="text" class="form-control" placeholder="AAAA-MM-DD"/>
+    <label>Fecha final</label>
+    <input asp-for="fechaFinal" type="text" class="form-control" placeholder="AAAA-MM-DD"/>
+
+    <input asp-for="promocion" type="hidden" class="form-control" value="@Model.promocion"/>
+
+
+    <button type="submit">Enviar</button>
+
+
+
+</form>
