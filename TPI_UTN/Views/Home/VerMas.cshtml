@@ -4,22 +4,24 @@
 
     
 
-<h1>@this.Model.nombre</h1>
+
+    <h1>@this.Model.nombre</h1>
 
 
-<div class="row">
-    <div class="col-sm-6">
-        <img src=@this.Model.imagen />
+    <div class="row">
+        <div class="col-sm-6">
+            <img src=@this.Model.imagen />
+        </div>
+        <div class="col-sm-6">
+            @foreach (var text in this.Model.descripcion.Split("\r\n"))
+            {
+                <p class="text-black descripcion">@text</p>
+            }
+            <a asp-area="" asp-controller="Orden" asp-action="GenerarOrden" asp-route-id="@this.Model.id" class="btn btn-outline-success botonCompra">Comprar</a>
+        </div>
     </div>
-    <div class="col-sm-6">
-        @foreach( var text in this.Model.descripcion.Split("\r\n")){
-         <p class="text-black descripcion">@text</p>
-        }
-        <a asp-area="" asp-controller="Orden" asp-action="GenerarOrden" asp-route-id="@this.Model.id" class="btn btn-outline-success botonCompra">Comprar</a>
-     </div>
-</div>
 
-@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var $parrafo = $('.descripcion');
@@ -27,4 +29,5 @@
         $parrafo.text(text.replace(\r\n, '<br>'));
         })
     </script>*@
+
 
