@@ -89,6 +89,7 @@ h1 {
 .formulario {
     padding: 30%;
     padding-top: 0%;
+    
 }
 
 #categoriaNombre {
@@ -106,4 +107,26 @@ footer {
     width: 100%;
     background: linear-gradient(to right, #fca9e3, #ed26b1);
     padding-top: 1em;
+}
+
+h1{
+    font-size: 2rem;
+    font-weight:bold;
+
+    text-align:center;
+    text-transform:uppercase;
+}
+
+section{
+    padding: 3rem 0;
+    background-color: lightgray;
+    border-radius:25px
+    
+}
+
+form{
+   
+    margin:auto;
+    padding-left: 5em;
+  
 }

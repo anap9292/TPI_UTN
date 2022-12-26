@@ -1,16 +1,29 @@
 ﻿@using TPI_UTN.Models
 @model List<Promocion>
-<h1>ABM PROMOCIONES</h1>
 
-<a asp-action="Guardar" asp-controller="Promocion" class="btn btn-primary">Crear Promocion</a>
+ <div>
+<h4>Listado de Promociones</h4>
+</div>
 
-<table class="table">
-    <thead>
+<hr>
+
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            <a asp-action="Guardar" asp-controller="Promocion" class="btn btn-outline-dark">Crear Promocion</a>
+            
+        </span>
+    </div>
+</nav>
+
+
+<table class=" table table-bordered table-hover">
+    <thead class="table-secondary" >
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Imagen</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Decuento</th>
+            <th scope="col">Descuento</th>
             <th scope="col">Productos</th>
             <th scope="col">Acciones</th>
         </tr>

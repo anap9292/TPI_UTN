@@ -1,11 +1,24 @@
 ﻿@using TPI_UTN.Models
 @model List<Orden>
 
-
-<h1>ABM ÓRDENES DE COMPRA</h1>
 <div>
-    <table class="table">
-        <thead>
+    <h4>Ordenes de Compra</h4>
+</div>
+
+<hr>
+
+<nav class="navbar bg-light">
+<div class="container-fluid">
+    <span class="navbar-text">
+            <a asp-area="" asp-controller="Orden" asp-action="Guardar"class="btn btn-outline-dark" >Agregar una orden</a>
+           
+    </span>
+</div>
+</nav>
+
+<div>
+    <table class=" table table-bordered table-hover">
+        <thead class ="table-secondary">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Imagen</th>
@@ -39,7 +52,7 @@
 
 
                     <td>
-                        <a asp-area="" asp-controller="Orden" asp-action="Editar" asp-route-id="@orden.id" class="btn btn-secondary">Modificar</a>
+                        <a asp-area="" asp-controller="Orden" asp-action="Editar" asp-route-id="@orden.id" class="btn btn-secondary ">Modificar</a>
                         <a asp-area="" asp-controller="Orden" asp-action="Eliminar" asp-route-id="@orden.id" class="btn btn-danger">Eliminar</a>
                         <a asp-area="" asp-controller="Orden" asp-action="Cancelar" asp-route-id="@orden.id" class="btn btn-info">Cancelar compra</a>
 
@@ -47,6 +60,6 @@
                 </tr>
             }
     </table>
-    <a asp-area="" asp-controller="Orden" asp-action="Guardar" class="btn btn-primary">Agregar una orden</a>
+    
 </div>
 

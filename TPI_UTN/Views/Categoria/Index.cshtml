@@ -1,11 +1,22 @@
 ﻿@using TPI_UTN.Models.Proveedor
 @model List<Categoria>
-<h1>ABM CATEGORíAS</h1>
 
-<a asp-action="Guardar" asp-controller="Categoria" class="btn btn-primary">Crear Categoria</a>
+<div>
+    <h4>Categorías</h4>
+</div>
+
+<hr>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            <a asp-action="Guardar" asp-controller="Categoria" class="btn btn-outline-dark">Crear Categoria</a>
+            
+        </span>
+    </div>
+</nav>
 
 <table class="table table-bordered table-hover">
-    <thead>
+    <thead class="table-secondary" >
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>

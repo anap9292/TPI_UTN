@@ -1,25 +1,32 @@
 ﻿@model List<Usuario>
 
+ <div>
+<h4>Listado de Usuarios</h4>
+</div>
 
-<h1>Nueva vista de usuario</h1>
-<h2>Administrador de Usuarios</h2>
-<div class="container">
+<hr>
+
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
+
+            <a asp-action="Guardar" asp-controller="Usuario" class="btn btn-outline-dark" asp-route-id="">Nuevo usuario</a>
+        </span>
+    </div>
+</nav>
 
 
-    <a asp-action="Guardar" asp-controller="Usuario" class="btn btn-secondary" asp-route-id="">Nuevo usuario</a>
 
-    
 
-    <table class="table">
-        <thead>
+    <table class =" table table-bordered table-hover">
+        <thead class ="table-secondary">
             <tr>
-                <th scope="col" class="table-primary">ID</th>
-                <th scope="col" class="table-primary">Nombre</th>
-                <th scope="col" class="table-primary">Contraseña</th>
-                <th scope="col" class="table-primary">Tipo Usuario</th>
-
-                <th scope="col" class="table-primary">Borrar</th>
-                <th scope="col" class="table-primary">Editar</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Tipo Usuario</th>
+                <th colspan="3">   Acciones   </th>
+                
 
             </tr>
         </thead>
@@ -46,4 +53,3 @@
         }
 
     </table>
-</div>

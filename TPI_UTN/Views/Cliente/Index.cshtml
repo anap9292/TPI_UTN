@@ -1,15 +1,23 @@
 ﻿@model List<Cliente>
 
+ <div>
+   <h4>Listado de Clientes</h4>
+</div>
 
+<hr />
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
 
-<h2>Administrador de clientes</h2>
+            <a asp-action="Guardar" asp-controller="Cliente" class="btn btn-outline-dark">Crear Cliente</a>
 
-<a asp-action="Guardar" asp-controller="Cliente" class="btn btn-primary">Crear Cliente</a>
-
+        </span>
+    </div>
+</nav>
 
 
 <table class=" table table-bordered table-hover">
-    <thead class="table-ligth">
+    <thead class ="table-secondary">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Nombre</th>
@@ -18,7 +26,8 @@
             <th scope="col">DNI</th>
             <th scope="col">Razon Social</th>
             <th scope="col">Usuario</th>
-            <th scope="col">ACCIÓN</th>
+            <th colspan="2"> Acciones</th>
+             
         </tr>
     </thead>
 
