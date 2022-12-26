@@ -52,7 +52,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(producto);
             }
         }
 
@@ -73,7 +73,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(producto);
             }
         }
 

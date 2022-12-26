@@ -2,6 +2,7 @@
 using System.Data;
 using TPI_UTN.Models;
 using TPI_UTN.Models.Proveedor;
+using System;
 
 namespace TPI_UTN.Datos
 {
@@ -115,6 +116,7 @@ namespace TPI_UTN.Datos
                     conexionTemp.Open();
 
                     SqlCommand cmd = new SqlCommand("EditarPromocion", conexionTemp);
+                    cmd.Parameters.AddWithValue("id", oProducto.id);
                     cmd.Parameters.AddWithValue("nombre", oProducto.nombre);
                     cmd.Parameters.AddWithValue("descuento", oProducto.descuento);
                     cmd.Parameters.AddWithValue("imagen", oProducto.imagen);
@@ -145,7 +147,7 @@ namespace TPI_UTN.Datos
                 {
                     conexionTemp.Open();
 
-                    SqlCommand cmd = new SqlCommand("EliminarProducto", conexionTemp);
+                    SqlCommand cmd = new SqlCommand("EliminarPromocion", conexionTemp);
                     cmd.Parameters.AddWithValue("id", id); //este solo se usa para encontrar el registro
                     //modificar valores
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -227,8 +229,8 @@ namespace TPI_UTN.Datos
                         oLista.Add(new PromocionProducto()
                         {
                             id = Convert.ToInt32(lector["pp_id"]),
-                            fechaInicio = Convert.ToDateTime(lector["pp_fecha_inicio"]),
-                            fechaFinal = Convert.ToDateTime(lector["pp_fecha_final"]),
+                            fechaInicio = Convert.ToString(lector["pp_fecha_inicio"]),
+                            fechaFinal = Convert.ToString(lector["pp_fecha_final"]),
                             producto = Convert.ToInt32(lector["pp_producto"]),
                             promocion = Convert.ToInt32(lector["pp_promocion"])
 
@@ -273,7 +275,7 @@ namespace TPI_UTN.Datos
             return respuesta;
         }
 
-        public bool EliminarPP(PromocionProducto objeto)
+        public bool EliminarPP(int id)
         {
             bool respuesta;
             try
@@ -284,6 +286,39 @@ namespace TPI_UTN.Datos
                     conexionTemp.Open();
 
                     SqlCommand cmd = new SqlCommand("EliminarPP", conexionTemp);
+                    cmd.Parameters.AddWithValue("id", id);
+                    //cmd.Parameters.AddWithValue("promocion", objeto.promocion);
+                    //cmd.Parameters.AddWithValue("producto", objeto.producto);
+                    //cmd.Parameters.AddWithValue("fechaInicio", objeto.fechaInicio);
+                    //cmd.Parameters.AddWithValue("fechaFinal", objeto.fechaFinal);
+                    //modificar valores
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                respuesta = true;
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                respuesta = false;
+            }
+            return respuesta;
+        }
+
+        public bool EditarPP(PromocionProducto objeto)
+        {
+            bool respuesta;
+            try
+            {
+                var conexion = new Conexion();
+                using (var conexionTemp = new SqlConnection(conexion.getCadenaSQL()))
+                {
+                    conexionTemp.Open();
+
+                    SqlCommand cmd = new SqlCommand("EditarPP", conexionTemp);
+                    cmd.Parameters.AddWithValue("id", objeto.id);
                     cmd.Parameters.AddWithValue("promocion", objeto.promocion);
                     cmd.Parameters.AddWithValue("producto", objeto.producto);
                     cmd.Parameters.AddWithValue("fechaInicio", objeto.fechaInicio);

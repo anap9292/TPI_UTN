@@ -6,17 +6,26 @@
 
 
 <form asp-action="Editar" asp-controller="Promocion" method="post">
+   
     <input asp-for="id" type="hidden" class="form-control" value="@Model.id">
 
-    <label>Nombre</label>
-    <input asp-for="nombre" type="text" class="form-control" value="@Model.nombre" >
-    <label>Descuento</label>
-    <input asp-for="descuento" type="text" class="form-control" value="@Model.descuento">
-    <label>Imagen</label>
-    <input asp-for="imagen" type="text" class="form-control" value="@Model.imagen">
-    <label>Descripcion</label>
-    <input asp-for="descripcion" type="text" class="form-control" value="@Model.descripcion">
-
+    <div>
+        <label>Nombre</label>
+        <input asp-for="nombre" type="text" class="form-control" value="@Model.nombre" >
+    </div>
+    <div>
+        <label>Descuento</label>
+        <input asp-for="descuento" type="text" class="form-control" value="@Model.descuento">
+        <small class="form-text text-muted">Ej: Si el descuento es del 10%, ingrese 0,1. Si es del 5%, entonces 0,05. </small>
+    </div>
+    <div>
+        <label>Imagen</label>
+        <input asp-for="imagen" type="text" class="form-control" value="@Model.imagen">
+    </div>
+    <div>
+        <label>Descripcion</label>
+        <input asp-for="descripcion" type="text" class="form-control" value="@Model.descripcion">
+    </div>
 
     <button type="submit">Enviar</button>
 

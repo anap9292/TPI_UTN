@@ -47,9 +47,10 @@
                 <td>@item.empl_supervisor_id</td>
                 <td>@item.empl_user</td>
               
-                <td><a asp-action="Editar" asp-controller="Empleado" class="btn btn-secondary" asp-route-id="@item.empl_id">Editar</a></td>
-              
-              <td><a asp-action="Eliminar" asp-controller="Empleado" class="btn btn-danger" asp-route-id="@item.empl_id">Eliminar</a></td>
+                <td>
+                    <a asp-action="Editar" asp-controller="Empleado" class="btn btn-secondary" asp-route-id="@item.empl_id">Editar</a>
+                    <a asp-action="Eliminar" asp-controller="Empleado" class="btn btn-danger" asp-route-id="@item.empl_id">Eliminar</a>
+               </td>
             </tr>
         </tbody>
     }
