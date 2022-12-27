@@ -202,6 +202,7 @@ namespace TPI_UTN.Datos
                     {
                         while (lector.Read())
                         {
+                            usuario.usuario_id = Convert.ToInt32(lector["usuario_id"]);
                             usuario.user_nombre = Convert.ToString(lector["user_nombre"]);
                             usuario.user_contrasena = Convert.ToString(lector["user_contrasena"]);
                             usuario.user_tipo = Convert.ToInt32(lector["user_tipo"]);
@@ -314,7 +315,43 @@ namespace TPI_UTN.Datos
         }
 
 
+        public Cliente ObtenerClientePorUsuario(int usuario)
+        {
+            var oUsuario = new Cliente();
+            try
+            {
+                var conexion = new Conexion();
 
+                using (var conexionTemp = new SqlConnection(conexion.getCadenaSQL()))
+                {
+                    conexionTemp.Open();
+                    SqlCommand cmd = new SqlCommand("ObtenerClientePorUsuario", conexionTemp);
+                    cmd.Parameters.AddWithValue("id", usuario);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    //Realizamos la lectura de los registros
+                    using (var lector = cmd.ExecuteReader())
+                    {
+                        while (lector.Read())
+                        {
+                            oUsuario.clie_id = Convert.ToInt32(lector["clie_id"]);
+                            oUsuario.clie_nombre = Convert.ToString(lector["clie_nombre"]);
+                            oUsuario.clie_apellido = Convert.ToString(lector["clie_apellido"]);
+                            oUsuario.clie_cuil = Convert.ToString(lector["clie_cuil"]);
+                            oUsuario.clie_dni = Convert.ToString(lector["clie_dni"]);
+                            oUsuario.clie_razon_social = Convert.ToString(lector["clie_razon_social"]);
+
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                return oUsuario;
+            }
+            return oUsuario;
+        }
 
 
 

@@ -10,7 +10,7 @@ namespace TPI_UTN.Controllers
 
         OrdenDatos ordenDatos = new OrdenDatos();
         ProductoDatos productoDatos = new ProductoDatos();
-
+        UsuarioDatos usuarioDatos = new UsuarioDatos();
 
         public IActionResult Index()
         {
@@ -22,6 +22,8 @@ namespace TPI_UTN.Controllers
         {
             var listaProducto = productoDatos.Listar();
             Producto producto = listaProducto.First(prod => prod.id == id);
+            //int user = Convert.ToInt32( Request.Cookies["UsuarioID"]);
+            //var cliente = usuarioDatos.ObtenerClientePorUsuario(user);
 
             Orden oOrden = new Orden();
             oOrden.id = 0;
@@ -30,6 +32,7 @@ namespace TPI_UTN.Controllers
             oOrden.productoImagen = producto.imagen;
             oOrden.productoDescripcion = producto.descripcion;
             oOrden.empleado = 11;
+            //oOrden.cliente = cliente.clie_id;
             oOrden.cliente = 48;
             oOrden.descuento = 0.00m;
 

@@ -20,6 +20,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 });
 
+
 // Add services to the container.
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 

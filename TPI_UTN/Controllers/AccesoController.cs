@@ -34,6 +34,8 @@ namespace TPI_UTN.Controllers
 
             var usuario = InfoUsuario.AutenticarUsuario(_user.user_nombre, _user.user_contrasena);
             //AutenticarUsuario(_user.user_nombre, _user.user_contrasena);
+            //var cookieOptions = new CookieOptions();
+
 
 
             if (usuario != null  )
@@ -41,8 +43,9 @@ namespace TPI_UTN.Controllers
                 var claims = new List<Claim>
                 {
 
-                    new Claim(ClaimTypes.Name, usuario.user_nombre)
+                    new Claim(ClaimTypes.Name, usuario.user_nombre),
                    // new Claim( usuario.UsuarioEmail) esto no lo tengo
+                   new Claim("UsuarioID", usuario.usuario_id.ToString())
                 };
 
                 claims.Add(new Claim(ClaimTypes.Role, usuario.rolAsociado.tipo_descripcion));

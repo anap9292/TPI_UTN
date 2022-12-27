@@ -13,21 +13,14 @@
             <img src=@this.Model.imagen />
         </div>
         <div class="col-sm-6">
-            @foreach (var text in this.Model.descripcion.Split("\r\n"))
-            {
-                <p class="text-black descripcion">@text</p>
-            }
+          
+            
+                <p class="text-black descripcion">@Model.descripcion</p>
+            
             <a asp-area="" asp-controller="Orden" asp-action="GenerarOrden" asp-route-id="@this.Model.id" class="btn btn-outline-success botonCompra">Comprar</a>
         </div>
     </div>
 
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var $parrafo = $('.descripcion');
-            var text = $parrafo.text();
-        $parrafo.text(text.replace(\r\n, '<br>'));
-        })
-    </script>*@
+
 
 
