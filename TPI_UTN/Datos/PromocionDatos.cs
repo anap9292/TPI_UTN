@@ -73,7 +73,7 @@ namespace TPI_UTN.Datos
 
         }
 
-        public bool Guardar(Promocion oProducto)
+        public bool Guardar(Promocion objeto)
         {
             bool respuesta;
             try
@@ -84,10 +84,10 @@ namespace TPI_UTN.Datos
                     conexionTemp.Open();
 
                     SqlCommand cmd = new SqlCommand("GuardarPromocion", conexionTemp);
-                    cmd.Parameters.AddWithValue("nombre", oProducto.nombre);
-                    cmd.Parameters.AddWithValue("descuento", oProducto.descuento);
-                    cmd.Parameters.AddWithValue("imagen", oProducto.imagen);
-                    cmd.Parameters.AddWithValue("descripcion", oProducto.descripcion);
+                    cmd.Parameters.AddWithValue("nombre", objeto.nombre);
+                    cmd.Parameters.AddWithValue("descuento", objeto.descuento);
+                    cmd.Parameters.AddWithValue("imagen", objeto.imagen);
+                    cmd.Parameters.AddWithValue("descripcion", objeto.descripcion);
 
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -105,7 +105,7 @@ namespace TPI_UTN.Datos
             return respuesta;
         }
 
-        public bool Editar(Promocion oProducto)
+        public bool Editar(Promocion objeto)
         {
             bool respuesta;
             try
@@ -116,11 +116,11 @@ namespace TPI_UTN.Datos
                     conexionTemp.Open();
 
                     SqlCommand cmd = new SqlCommand("EditarPromocion", conexionTemp);
-                    cmd.Parameters.AddWithValue("id", oProducto.id);
-                    cmd.Parameters.AddWithValue("nombre", oProducto.nombre);
-                    cmd.Parameters.AddWithValue("descuento", oProducto.descuento);
-                    cmd.Parameters.AddWithValue("imagen", oProducto.imagen);
-                    cmd.Parameters.AddWithValue("descripcion", oProducto.descripcion);
+                    cmd.Parameters.AddWithValue("id", objeto.id);
+                    cmd.Parameters.AddWithValue("nombre", objeto.nombre);
+                    cmd.Parameters.AddWithValue("descuento", objeto.descuento);
+                    cmd.Parameters.AddWithValue("imagen", objeto.imagen);
+                    cmd.Parameters.AddWithValue("descripcion", objeto.descripcion);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -287,11 +287,7 @@ namespace TPI_UTN.Datos
 
                     SqlCommand cmd = new SqlCommand("EliminarPP", conexionTemp);
                     cmd.Parameters.AddWithValue("id", id);
-                    //cmd.Parameters.AddWithValue("promocion", objeto.promocion);
-                    //cmd.Parameters.AddWithValue("producto", objeto.producto);
-                    //cmd.Parameters.AddWithValue("fechaInicio", objeto.fechaInicio);
-                    //cmd.Parameters.AddWithValue("fechaFinal", objeto.fechaFinal);
-                    //modificar valores
+
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.ExecuteNonQuery();

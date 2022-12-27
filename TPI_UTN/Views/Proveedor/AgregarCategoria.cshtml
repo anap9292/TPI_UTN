@@ -3,22 +3,23 @@
 
 <h1>Agrega una categoría al proveedor</h1>
 
-<small class="form-text text-muted">¿Es una nueva categoría? Registrela primero.</small>
-<a asp-area="" asp-controller="Categoria" asp-action="Guardar" class="btn btn-secondary">Registrar una categoría</a>
-
 <div class="formulario">
     <form asp-action="AgregarCategoria" asp-controller="Proveedor" method="post">
-
+        
         <input hidden asp-for="id" value =@Model.id type="text" class="form-control" id="agregarCateNombre" placeholder="Debe ser una categoría existente...">
 
-
+        <a asp-area="" asp-controller="Categoria" asp-action="Guardar" class="form-text text-muted">¿Es una nueva categoría? Registrela primero.</a>
+        
         <div class="form-group">
             <label for="nombre">Categoria para agregar</label>
-            <input asp-for="categoria" type="text" class="form-control" id="agregarCateNombre" placeholder="Debe ser una categoría existente...">
+            <input asp-for="categoria" type="text" class="form-control" id="agregarCateNombre" placeholder="Debe una categoría existente...">
         </div>
 
         <button type="submit" class="btn btn-primary">Agregar</button>
-        
+        <div>
+            
+        </div>
+
 
     </form>
 </div>

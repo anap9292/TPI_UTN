@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace TPI_UTN.Controllers
 {
-    //[Authorize]
+
     public class HomeController : Controller
     {
 
