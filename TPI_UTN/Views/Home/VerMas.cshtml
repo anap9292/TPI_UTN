@@ -13,11 +13,10 @@
             <img src=@this.Model.imagen />
         </div>
         <div class="col-sm-6">
-            @foreach (var text in this.Model.descripcion.Split("\r\n"))
-            {
-                <p class="text-black descripcion">@text</p>
-            }
-        @if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente")) {
+
+                <p class="text-black descripcion">@Model.descripcion</p>
+            
+        @if (@*User.IsInRole("Administrador") || User.IsInRole("Vendedor") ||*@ User.IsInRole("Cliente")) {
             <a asp-area="" asp-controller="Orden" asp-action="GenerarOrden" asp-route-id="@this.Model.id" class="btn btn-outline-success botonCompra">Comprar</a>
 
         }

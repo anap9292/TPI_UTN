@@ -3,6 +3,7 @@
 
 <h1>Categorias del proveedor</h1>
 <div>
+    <a asp-area="" asp-controller="Proveedor" asp-action="AgregarCategoria" asp-route-id="@Model.id" class="btn btn-outline-dark">Agregar categoría a este proveedor</a>
     <table class ="table table-bordered table-hover">
         <thead class ="table-secondary">
             <tr>
@@ -26,7 +27,5 @@
             </tbody>
     </table>
     </div>
-@{
-    Proveedor p = new Proveedor() { id = this.Model.id };
-}
+
        

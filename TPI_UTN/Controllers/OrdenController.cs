@@ -22,8 +22,10 @@ namespace TPI_UTN.Controllers
         {
             var listaProducto = productoDatos.Listar();
             Producto producto = listaProducto.First(prod => prod.id == id);
-            //int user = Convert.ToInt32( Request.Cookies["UsuarioID"]);
-            //var cliente = usuarioDatos.ObtenerClientePorUsuario(user);
+            var cookieUsuarioID = Request.Cookies["UsuarioID"];
+
+            int user = Convert.ToInt32(cookieUsuarioID);
+            var cliente = usuarioDatos.ObtenerClientePorUsuario(user);
 
             Orden oOrden = new Orden();
             oOrden.id = 0;
@@ -31,9 +33,8 @@ namespace TPI_UTN.Controllers
             oOrden.productoNombre = producto.nombre;
             oOrden.productoImagen = producto.imagen;
             oOrden.productoDescripcion = producto.descripcion;
-            oOrden.empleado = 11;
-            //oOrden.cliente = cliente.clie_id;
-            oOrden.cliente = 48;
+            oOrden.empleado = 11; //Vendedor Online
+            oOrden.cliente = cliente.clie_id;
             oOrden.descuento = 0.00m;
 
             return View(oOrden);
@@ -42,7 +43,7 @@ namespace TPI_UTN.Controllers
         [HttpPost]
         public IActionResult GenerarOrden(Orden orden)
         {
-          //  orden.descuento = 0.01m;
+
 
             var respuesta = ordenDatos.Guardar(orden);
 

@@ -33,8 +33,7 @@ namespace TPI_UTN.Controllers
             UsuarioDatos InfoUsuario = new UsuarioDatos();
 
             var usuario = InfoUsuario.AutenticarUsuario(_user.user_nombre, _user.user_contrasena);
-            //AutenticarUsuario(_user.user_nombre, _user.user_contrasena);
-            //var cookieOptions = new CookieOptions();
+
 
 
 
@@ -44,9 +43,15 @@ namespace TPI_UTN.Controllers
                 {
 
                     new Claim(ClaimTypes.Name, usuario.user_nombre),
-                   // new Claim( usuario.UsuarioEmail) esto no lo tengo
-                   new Claim("UsuarioID", usuario.usuario_id.ToString())
+
                 };
+
+                // Cookie que guarda el ID del usuario
+                var cookieOptions = new CookieOptions();
+                cookieOptions.Expires = DateTime.Now.AddDays(1);
+                cookieOptions.Path = "/";
+                Response.Cookies.Append("UsuarioID", usuario.usuario_id.ToString(), cookieOptions);
+
 
                 claims.Add(new Claim(ClaimTypes.Role, usuario.rolAsociado.tipo_descripcion));
 
