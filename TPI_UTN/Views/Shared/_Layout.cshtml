@@ -39,7 +39,7 @@
                             <a class="btn btn-success  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Index">Ingresar</a>
                         
                     </form>
-                  
+                 
 
                     <!-- if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
                     {-->
@@ -116,20 +116,23 @@
 
 
 
-                    @if(User.Identity.IsAuthenticated){
-                        <center>
-
-                            <p>Estas Logueado como <span class="usuari">@User.Identity.Name </span> </p>
-                           
-                        </center>
-                    }
+                    
                   
                 
                  </div>
             </div>
         </nav>
     </header>
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <center>
 
+                <p>Estas Logueado como <span class="usuari">@User.Identity.Name </span> </p>
+
+            </center>
+        }
+    </div>
    
     <div class="container">
         <main role="main" class="pb-3">
