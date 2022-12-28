@@ -31,11 +31,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Nosotros</a>
                         </li>                     
-                        <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Contactanos</a>
-                         </li>
-
-                        
+                                         
                      </ul>
 
                     <form class="d-flex">
@@ -51,8 +47,11 @@
                     
                 <!--Administrador-->
 
-                       @if (User.IsInRole("Administrador") || User.IsInRole("Vendedor") || User.IsInRole("Cliente"))
+                       @if (User.IsInRole("Administrador"))
                     {
+                        <form class="d-flex">
+                            <a class="btn btn-danger  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                        </form>
                        
                         <div class="btn-group d-flex">
                             <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,13 +79,48 @@
                     </div>
 
                     }
+                    @if (User.IsInRole("Vendedor")){
+                        <form class="d-flex">
+                            <a class="btn btn-danger  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                        </form>
+                        <!--Vendedor-->
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Vendedor
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Proveedor" asp-action="Index">Proveedores</a></li>
+                                <li><a class="dropdown-item" asp-controller="Categoria" asp-action="Index">Categoria</a></li>
+                                <li><a class="dropdown-item" asp-controller="Producto" asp-action="Index">Productos</a></li>
+                                <li><a class="dropdown-item" asp-controller="Orden" asp-action="Index">Orden</a></li>
+                            </ul>
+                        </div>
+                    }
+
+                    <!--Cliente------------------------------>
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <form class="d-flex">
+                            <a class="btn btn-danger  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
+                        </form>
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Cliente
+                            </button>
+                            <ul class="dropdown-menu">
+                             
+                                <li><a class="dropdown-item" asp-controller="Orden" asp-action="Index">Orden</a></li>
+                            </ul>
+                        </div>
+                    }
+
+
 
                     @if(User.Identity.IsAuthenticated){
                         <center>
-                            <h2>Estas Logueado como @User.Identity.Name</h2>
-                            <form class="d-flex">
-                                <a class="btn btn-danger  animate__heartBeat" asp-area="" asp-controller="Acceso" asp-action="Salir">Salir</a>
-                            </form>
+
+                            <p>Estas Logueado como <span class="usuari">@User.Identity.Name </span> </p>
+                           
                         </center>
                     }
                   

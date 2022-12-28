@@ -121,7 +121,6 @@ namespace TPI_UTN.Controllers
         [HttpPost]
         public IActionResult AgregarProducto(PromocionProducto pp)
         {
-            //PromocionProducto pp = new PromocionProducto() { promocion = p.id, producto = p.producto.id };
             var respuesta = promocionDatos.AgregarProducto(pp);
 
             if (respuesta)

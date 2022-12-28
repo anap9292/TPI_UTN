@@ -60,9 +60,9 @@ h1 {
     text-align: center;
     padding: 5%;
 }
-/*a:hover {
-           color: yellow;
-}*/
+.smallLink:hover {
+           color: blue;
+}
 
 .busqueda {
     /*justify-content:center;*/
@@ -132,5 +132,10 @@ section{
 form {
     margin: auto;
     padding-left: 10em;
+}
+
+/*Span usuario*/
+.usuari {
+    color: fuchsia;
 }
 

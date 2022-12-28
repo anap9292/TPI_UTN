@@ -57,8 +57,8 @@ namespace TPI_UTN.Datos
                 {
                     while (lector.Read())
                     {
-                        oCategoria.id = Convert.ToInt32(lector["prod_id"]);
-                        oCategoria.nombre = Convert.ToString(lector["prod_nombre"]);
+                        oCategoria.id = Convert.ToInt32(lector["cate_id"]);
+                        oCategoria.nombre = Convert.ToString(lector["cate_nombre"]);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace TPI_UTN.Datos
 
         }
 
-        public bool Guardar(Categoria oProducto)
+        public bool Guardar(Categoria objeto)
         {
             bool respuesta;
             try
@@ -77,7 +77,7 @@ namespace TPI_UTN.Datos
                     conexionTemp.Open();
 
                     SqlCommand cmd = new SqlCommand("GuardarCategoria", conexionTemp);
-                    cmd.Parameters.AddWithValue("nombre", oProducto.nombre);
+                    cmd.Parameters.AddWithValue("nombre", objeto.nombre);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -94,7 +94,7 @@ namespace TPI_UTN.Datos
             return respuesta;
         }
 
-        public bool Editar(Categoria oProducto)
+        public bool Editar(Categoria objeto)
         {
             bool respuesta;
             try
@@ -105,8 +105,8 @@ namespace TPI_UTN.Datos
                     conexionTemp.Open();
 
                     SqlCommand cmd = new SqlCommand("EditarCategoria", conexionTemp);
-                    cmd.Parameters.AddWithValue("id", oProducto.id);
-                    cmd.Parameters.AddWithValue("nombre", oProducto.nombre);
+                    cmd.Parameters.AddWithValue("id", objeto.id);
+                    cmd.Parameters.AddWithValue("nombre", objeto.nombre);
 
                     cmd.CommandType = CommandType.StoredProcedure;
 

@@ -34,8 +34,7 @@
         <div class="form-group">
             <label for="precio">Proveedor</label>
             <input asp-for="proveedor" type="text" class="form-control" id="NuevoProdProveedor" placeholder="Sólo puede poner un proveedor existente." >
-            <small class="form-text text-muted">¿Es un nuevo proveedor? Registrelo primero.</small>
-            <a asp-area="" asp-controller="Proveedor" asp-action="Guardar" class="btn btn-secondary">Registrar un proveedor</a>
+            <a asp-area="" asp-controller="Proveedor" asp-action="Guardar" class="form-text text-muted smallLink">¿Es un nuevo proveedor? Registrelo primero.</a>
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
 
