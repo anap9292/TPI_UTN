@@ -1,6 +1,8 @@
 ﻿@using TPI_UTN.Models
 @model PromocionProducto
 
+
+<section>
 <h1>Edita el producto @Model.oProducto.nombre de @Model.oPromocion.nombre</h1>
 
 <form asp-action="EditarProducto" asp-controller="Promocion" method="post">
@@ -25,3 +27,4 @@
 
 
 </form>
+</section>

@@ -1,11 +1,21 @@
 ﻿@using TPI_UTN.Models
 @model Promocion
-<h1>Productos de la promocion @Model.nombre</h1>
 
-<a asp-action="AgregarProducto" asp-controller="Promocion" asp-route-id="@Model.id" class="btn btn-primary">Agregar producto a la promoción</a>
+<div>
+    <h4>Productos de la Promoción @Model.nombre</h4>
+</div>
 
-<table class="table">
-    <thead>
+<hr>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            <a asp-action="AgregarProducto" asp-controller="Promocion" asp-route-id="@Model.id" class="btn btn-outline-dark">Agregar producto a la promoción</a>
+        </span>
+    </div>
+</nav>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-secondary">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Imagen</th>

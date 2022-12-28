@@ -1,6 +1,7 @@
 ﻿@model Empleado
+<section>
+<h1>Editar Empleado</h1>
 
-<h2>Editar Empleado</h2>
 <form asp-action="Editar" asp-controller="Empleado" method="post">
     <input asp-for="empl_id" type="hidden" class="form-control" /> <!--esta oculto y va a traer el id-->
     <div class="container">
@@ -26,3 +27,4 @@
 
 
 </form>
+</section>

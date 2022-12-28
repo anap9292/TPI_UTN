@@ -1,10 +1,25 @@
 ﻿@using TPI_UTN.Models.Proveedor
 @model Proveedor
 
-<h1>Categorias del proveedor</h1>
 <div>
-    <table class="table">
-        <thead>
+<h4>Categoría Proveedor</h4>
+</div>
+
+<hr>
+
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            <a asp-area="" asp-controller="Proveedor" asp-action="AgregarCategoria" asp-route-id=@Model.id class="btn btn-outline-dark" >Agregar una categoría a este proveedor</a>
+
+        </span>
+    </div>
+</nav>
+
+
+<div>
+    <table class ="table table-bordered table-hover">
+        <thead class ="table-secondary">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Categoría</th>
@@ -29,5 +44,4 @@
 @{
     Proveedor p = new Proveedor() { id = this.Model.id };
 }
-    <a asp-area="" asp-controller="Proveedor" asp-action="AgregarCategoria" asp-route-id=@Model.id class="btn btn-primary">Agregar una categoría a este proveedor</a>
-   
+    
