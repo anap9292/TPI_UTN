@@ -17,17 +17,7 @@ namespace TPI_UTN.Controllers
 
         [HttpPost]
 
-        /*public IActionResult Index (Usuario _user)
-        {
-            UsuarioDatos InfoUsuario = new UsuarioDatos();
 
-            var usuarioAutenticado = InfoUsuario.ValidarUsuario(_user.user_nombre, _user.user_contrasena);
-
-            if (usuarioAutenticado != null)
-
-
-            return View();
-        }*/
         public async Task<IActionResult> Index(Usuario _user)
         {
             UsuarioDatos InfoUsuario = new UsuarioDatos();

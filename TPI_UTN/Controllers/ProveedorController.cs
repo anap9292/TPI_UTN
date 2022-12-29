@@ -33,7 +33,7 @@ namespace TPI_UTN.Controllers
             }
             else
             {
-                return View();
+                return View(producto);
             }
         }
         public IActionResult Editar(int id)
